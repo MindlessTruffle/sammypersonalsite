@@ -1,0 +1,16 @@
+/* Centered identity and larger responsive keys, with quiet scenes beneath each brand. */
+.social-panel{display:grid;grid-template-columns:repeat(3,minmax(0,68px));column-gap:14px;row-gap:12px;align-items:start;justify-content:center;padding-bottom:0}
+.social-identity{grid-column:1/-1;display:grid;justify-items:center;gap:3px;text-align:center;min-width:0}
+.social-handle{font-size:14px;line-height:1.35;letter-spacing:.02em;color:#f1dfba;overflow-wrap:anywhere}
+.social-discord{font-size:13px;color:#e3c9b0;line-height:1.4}.social-discord strong{color:#f5e8c9;font-weight:650;margin-left:5px;user-select:all}
+.social-station{position:relative;width:100%;min-width:0;padding-bottom:50px}
+.social-motion{position:relative;transform-origin:50% 16px}
+.social-key{width:100%;height:auto;aspect-ratio:1;min-height:48px;box-sizing:border-box;background:#f7e4b7;box-shadow:inset 3px 3px #fff4cf,inset -3px -3px #c6a364,0 5px 0 #293e32,0 7px 0 #172c2440}
+.social-key img{width:32px;height:32px;max-width:55%;object-fit:contain;position:relative;z-index:1}
+.social-key::after{content:'';position:absolute;inset:5px;border:1px solid #b99b6645;pointer-events:none}
+.social-key:hover{background:#fff1cd}.social-key:focus-visible{outline:3px solid #fff3c9;outline-offset:5px}
+.social-tooltip{z-index:5;bottom:calc(100% + 8px)}
+.social-particles{position:absolute;bottom:2px;left:50%;width:88px;height:44px;transform:translateX(-50%);pointer-events:none;image-rendering:pixelated}
+@media(max-width:1050px) and (min-width:761px){.social-panel{column-gap:10px}}
+@media(max-width:359px){.social-panel{column-gap:10px}}
+@media(prefers-reduced-motion:reduce){.social-motion{transform:none!important}}
