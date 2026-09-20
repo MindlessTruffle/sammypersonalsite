@@ -16,7 +16,8 @@ Social scenes idle continuously at 24fps: banking birds, flowing binary, black-p
 Keep larger keys and both handles centered above the row (Discord: chatgpt9). Pause effects
 offscreen, in dialogs, and for reduced motion; use static scenes when motion is reduced.
 Use a compact rounded indie-game arrow cursor with a thick dark outline, cream fill,
-mint link state, and brief pastel glitch accents. Start each new vine with an immediate flower.
+mint link state, and brief pastel glitch accents. Starter flowers appear immediately but
+share a four-second cooldown across all banners and strokes; never delay the vine itself.
 Vines imprint immediately onto banner cloth, behind content, using fixed local coordinates.
 Draw fresh vine geometry each display frame with no stem delay. Spaced paired leaves and
 varied-color flowers grow after about one second, then fade within 3.4 seconds.

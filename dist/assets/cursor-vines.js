@@ -5,7 +5,7 @@ const surfaceSelector='.school,.work-section,.recent-section,.roblox-panel,.soci
 const clothElements=[...document.querySelectorAll(surfaceSelector)].filter(element=>element.closest('.banner'));
 let geometry=null;
 let previous=null,filter=null,target=null,inputTime=0,frame=0,last=0,sequence=0,blocked=false,pointerInside=false,glitchTimer=0;
-let stroke=0,seededStroke=-1,seededBanner=null,lastMovement=0,flowerSequence=0;
+let stroke=0,seededStroke=-1,seededBanner=null,lastMovement=0,flowerSequence=0,lastFlowerAt=-Infinity;
 function resetStroke(){previous=null;filter=null;target=null;inputTime=0;stroke++;}
 function advanceStroke(point,now){
  const result=smoothImprint(filter,point,inputTime?now-inputTime:16);
@@ -108,7 +108,11 @@ function flushInput(){
    const parts=imprintSegments(piece.start,piece.end);if(!parts.length)continue;
    const mark=batchFor(surfaceFor(piece.element),item.born);
    const banner=piece.element.closest('.banner');
-   if(item.stroke!==seededStroke||banner!==seededBanner){plantFlower(mark,piece.start);seededStroke=item.stroke;seededBanner=banner;}
+   if(item.stroke!==seededStroke||banner!==seededBanner){
+    // Share the cooldown across banners and pauses, without delaying the vine itself.
+    if(item.born-lastFlowerAt>=4000){plantFlower(mark,piece.start);lastFlowerAt=item.born;}
+    seededStroke=item.stroke;seededBanner=banner;
+   }
    parts.forEach(part=>appendSegment(mark,part.start,part.end));dirty.add(mark);
   }
  }

@@ -28,7 +28,8 @@ Social keys and handles are centered. Three quiet pixel scenes idle beneath the 
 birds banking and soaring, binary flowing along commit branches, and a black pen tracing a signature, a wax seal, and a handshake. They pause offscreen, in dialogs, and for reduced motion.
 
 Fine pointers use a rounded 26px cream cursor with a thick dark outline, a mint link state,
-and occasional pastel glitch accents. Each fresh vine begins with an immediate flower.
+and occasional pastel glitch accents. Fresh vines can begin with an immediate flower,
+limited to one starter flower every four seconds across all banners.
 Pointer movement paints temporary vines into banner backgrounds. Marks remain fixed to the
 cloth, draw responsive stems immediately, grow paired leaves and varied flowers later, and fade over 3.4 seconds. No trails appear
 outside banners. Text fields keep the insertion cursor, and reduced motion disables effects.
