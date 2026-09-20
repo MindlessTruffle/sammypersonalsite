@@ -41,3 +41,7 @@ castle-courtyard-refined.png is the built-in imagegen refinement of the earlier 
 ## Active medieval adventure update
 
 The cloth weave is original static SVG. Cat, fox, rabbit, and bird sprites are original code-native pixel maps with cached animation frames. Sword/tear, book badges, and link symbols are original SVG/CSS interface artwork. No new generated raster assets or dependencies were needed. The WebGL cloth shader has been removed.
+
+## Manuscript notes and split thumbnails
+
+Icon Emulator and Larpmegle captures are exact user-supplied PNG attachments, stored as icon-emulator-capture.png and larpmegle-capture.png. CSS combines them with existing illustrations using a 7-degree feathered seam; Larpmegle artwork is reframed left to preserve its participants. Original image files remain intact. Manuscript parchment is CSS, and scribe-quill.svg is an original code-native ornament.

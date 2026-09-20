@@ -1,0 +1,25 @@
+/* Original artwork and real captures remain separate, with a 7-degree feathered seam. */
+.art-split{position:absolute;inset:0;overflow:hidden;background:#8eb3b2}
+.art-split>.project-image{position:absolute;left:0;top:0;width:65%;height:100%;object-fit:cover;object-position:35% 70%}
+.art-split.larp>.project-image{object-position:65% 73%}
+.capture-side{position:absolute;inset:0;mask-image:linear-gradient(83deg,transparent calc(50% - 7px),#000 calc(50% + 7px));-webkit-mask-image:linear-gradient(83deg,transparent calc(50% - 7px),#000 calc(50% + 7px))}
+.capture-side img{position:absolute;right:0;top:0;width:60%;height:100%;object-fit:cover;object-position:50% 55%;image-rendering:auto}
+.art-split.larp .capture-side img{width:62%;object-position:65% 50%}
+.project-art:has(.art-split)::after{opacity:.3}
+
+/* A compact manuscript folio: warm parchment, rubricated initials, and ink details. */
+.project-rail .notes h2{font:600 italic 24px/1.2 'Playfair Display',Georgia,serif;color:#e8d6aa;display:flex;align-items:center;gap:10px}
+.notes h2::after{content:'';width:32px;height:32px;background:url('/assets/scribe-quill.svg') center/contain no-repeat;opacity:.8}
+.notes .note-board{position:relative;isolation:isolate;display:grid;padding:12px 14px 18px;background-color:#e7d3a5;background-image:radial-gradient(ellipse at 0 0,#9c6e3638,transparent 55%),radial-gradient(ellipse at 100% 100%,#a66e3b30,transparent 60%),repeating-linear-gradient(0deg,transparent 0 23px,#97764012 23px 24px);border:0;border-left:3px solid #a38049;border-right:3px solid #bd9c63;box-shadow:inset 2px 0 #f8e8bd,inset -2px 0 #f5e4b8,0 4px 0 #152b33;margin-top:16px}
+.notes .note-board::before,.notes .note-board::after{content:'';position:absolute;left:-7px;right:-7px;height:9px;background:linear-gradient(#f4e4bb 0 2px,#c8a76c 2px 5px,#8d683f 5px 7px,#b99359 7px);box-shadow:2px 2px 0 #152b3366;pointer-events:none}
+.notes .note-board::before{top:-5px}.notes .note-board::after{bottom:-5px}
+.notes .note-link{position:relative;grid-template-columns:minmax(0,1fr) 20px;gap:4px 8px;min-height:68px;padding:12px 0;border-bottom:1px solid #97744355;color:#443422;transition:background-color .15s}
+.notes .note-link:last-child{border-bottom:0;padding-bottom:8px}
+.notes .note-link time{font:italic 12px/1.3 'Playfair Display',Georgia,serif;color:#795a38;letter-spacing:.035em}
+.notes .note-title{display:block;font:600 17px/1.4 'Playfair Display',Georgia,serif;text-wrap:pretty}
+.notes .note-title::first-letter{color:#8d382a;font-size:1.35em}
+.notes .note-link .ui-icon{align-self:center;width:20px;height:20px;padding:0;background:none;color:#75512d;box-shadow:none;stroke-width:1.5}
+.notes .note-link:is(:hover,:focus-visible){background:#fff1ce70;color:#3b271b}
+.notes .note-link:is(:hover,:focus-visible) .ui-icon{background:none;color:#8d382a}
+.notes .note-link:focus-visible{outline:2px solid #8d382a;outline-offset:3px}
+@media(max-width:1050px) and (min-width:761px){.notes .note-board{padding-inline:10px}.notes .note-title{font-size:16px}}
