@@ -2,6 +2,7 @@
 export const IMPRINT_LIFETIME=3400;
 export const IMPRINT_BATCH_MS=240;
 export const IMPRINT_OPACITY=.16;
+export const IMPRINT_FLOWER_OPACITY=.22;
 // Speed-adaptive filtering absorbs tiny hand tremors, but releases on fast sweeps.
 // Midpoint quadratics share tangents; sampling happens before cloth-boundary clipping.
 export function smoothImprint(state,target,elapsed=16){

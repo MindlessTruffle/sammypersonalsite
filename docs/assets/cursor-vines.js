@@ -1,4 +1,4 @@
-import {imprintEnvelope,imprintSegments,clipImprintStroke,smoothImprint,IMPRINT_LIFETIME,IMPRINT_BATCH_MS,IMPRINT_OPACITY} from './cursor-vine-physics.js';
+import {imprintEnvelope,imprintSegments,clipImprintStroke,smoothImprint,IMPRINT_LIFETIME,IMPRINT_BATCH_MS,IMPRINT_OPACITY,IMPRINT_FLOWER_OPACITY} from './cursor-vine-physics.js';
 const fine=matchMedia('(hover: hover) and (pointer: fine)'),reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const NS='http://www.w3.org/2000/svg',surfaces=new Map(),marks=[],pending=[];
 const surfaceSelector='.school,.work-section,.recent-section,.roblox-panel,.social-panel,.notes,.project-entry,.number-demo,.banner';
@@ -66,9 +66,10 @@ function batchFor(surface,born){
  let mark=surface.batch;
  if(!mark||born-mark.born>=IMPRINT_BATCH_MS){
   const group=node('g'),stem=node('path',{class:'imprint-stem',pathLength:1}),highlight=node('path',{class:'imprint-highlight',pathLength:1}),sprout=node('path',{class:'imprint-branch',pathLength:1});
-  for(const path of [stem,highlight,sprout]){path.style.strokeDasharray='1';path.style.strokeDashoffset=path===sprout?'1':'0';group.append(path);}
-  group.style.opacity=String(IMPRINT_OPACITY);surface.svg.append(group);
-  mark={surface,group,stem,highlight,sprout,buds:[],stems:[],twigs:[],born,budDone:false};
+  const ink=node('g',{opacity:IMPRINT_OPACITY}),flowers=node('g',{opacity:IMPRINT_FLOWER_OPACITY});
+  for(const path of [stem,highlight,sprout]){path.style.strokeDasharray='1';path.style.strokeDashoffset=path===sprout?'1':'0';ink.append(path);}
+  group.append(ink,flowers);surface.svg.append(group);
+  mark={surface,group,ink,flowers,stem,highlight,sprout,buds:[],stems:[],twigs:[],born,budDone:false};
   surface.batch=mark;marks.push(mark);
  }
  return mark;
@@ -90,13 +91,13 @@ function appendSegment(mark,start,end){
   const angle=Math.atan2(j?-ny:ny*side,j?-nx:nx*side)*180/Math.PI+90;
   const anchor=node('g',{transform:'translate('+coord(x)+' '+coord(y)+') rotate('+coord(angle)+')'});
   const bud=node('use',{href:surface.symbols[j?index%2:index%4===0?2+(Math.floor(index/4)%4):index%2],transform:'scale(0)'});
-  anchor.append(bud);mark.group.append(anchor);mark.buds.push({node:bud,size:j?.48:.76});
+  anchor.append(bud);(j===0&&index%4===0?mark.flowers:mark.ink).append(anchor);mark.buds.push({node:bud,size:j?.48:.76});
  }
 }
 function plantFlower(mark,point){
  // The first flower is visible with the stem; later foliage still grows on its delay.
  const flower=node('use',{href:mark.surface.symbols[2+flowerSequence++%4],transform:'translate('+coord(point.x)+' '+coord(point.y)+') scale(.95)'});
- mark.group.append(flower);mark.surface.spacing=0;
+ mark.flowers.append(flower);mark.surface.spacing=0;
 }
 function flushInput(){
  const dirty=new Set();
@@ -132,7 +133,7 @@ function tick(now){
   const mark=marks[i],age=now-mark.born;
   if(age>=IMPRINT_LIFETIME){mark.group.remove();if(mark.surface.batch===mark)mark.surface.batch=null;marks.splice(i,1);continue;}
   const state=imprintEnvelope(age);
-  const opacity=(state.opacity*IMPRINT_OPACITY).toFixed(3);
+  const opacity=state.opacity.toFixed(3);
   if(mark.opacity!==opacity){mark.group.style.opacity=opacity;mark.opacity=opacity;}
   if(!mark.budDone){mark.sprout.style.strokeDashoffset=String(1-state.bud);mark.buds.forEach(bud=>bud.node.setAttribute('transform','scale('+(state.bud*bud.size).toFixed(3)+')'));mark.budDone=state.bud===1;}
  }
