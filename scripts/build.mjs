@@ -39,8 +39,8 @@ const icon=(name)=>`<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke=
 const crestPaths={forest:'<path d="M29 12h6v7h6v7h6v7h-9v7h12v7H35v9h-6v-9H14v-7h12v-7h-9v-7h6v-7h6Z"/>',fire:'<path d="M32 12h6v12h6v6h6v18h-6v6H20v-6h-6V30h6v6h6V24h6Z"/>',water:'<path d="M14 25h12v-6h12v6h12v6H38v-6H26v6H14m0 12h12v-6h12v6h12v6H38v-6H26v6H14"/>'};
 const crest=kind=>`<div class="banner-crest" aria-hidden="true"><svg viewBox="0 0 64 70" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${crestPaths[kind]}</svg></div>`;
 const brandArt={'number-company':'number-company-logo.png','icon-emulator':'icon-emulator-logo.svg','larpmegle':'larpmegle-logo.svg'};
-const sampleStats={'number-company':[['1.2k','site visits'],['64','shirts claimed']],'icon-emulator':[['8.4k','images created'],['240','exports']],'larpmegle':[['320','matches'],['96','players']]};
-const stats=p=>sampleStats[p.slug]?`<section class="sample-stats" aria-label="Placeholder project statistics"><p class="sample-label">sample data</p><dl>${sampleStats[p.slug].map(([value,label])=>`<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl></section>`:'';
+const projectStats={'icon-emulator':[['7.9K','images created'],['1.1K','training trees'],['540+','export requests']],'larpmegle':[['13k','games'],['#1','in search ranking']]};
+const stats=p=>projectStats[p.slug]?`<section class="sample-stats" aria-label="Project statistics"><dl style="--stat-count:${projectStats[p.slug].length}">${projectStats[p.slug].map(([value,label])=>`<div><dt>${label}</dt><dd>${value}</dd></div>`).join('')}</dl></section>`:'';
 const commandButton=()=>`<button class="command-trigger" type="button" aria-label="Open command menu" aria-haspopup="dialog">${icon('search')}<span>search</span><kbd class="modifier">ctrl</kbd><kbd>k</kbd></button>`;
 const captures={
  'icon-emulator':{file:'icon-emulator-capture.png',width:614,height:576,alt:'Icon Emulator branching workspace with dice and clover icons'},
