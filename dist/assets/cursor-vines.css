@@ -7,8 +7,8 @@
 }
 .imprint-surface{position:relative;isolation:isolate}
 .banner-imprint{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;overflow:hidden;contain:layout style}
-.banner-imprint .imprint-stem,.banner-imprint .imprint-branch,.banner-imprint .imprint-highlight{fill:none;stroke:#809a6f;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.banner-imprint .imprint-branch{stroke:#abc18a;stroke-width:.85}.banner-imprint .imprint-highlight{stroke:#d1dcb1;stroke-width:.45}
+.banner-imprint .imprint-stem,.banner-imprint .imprint-branch,.banner-imprint .imprint-highlight{fill:none;stroke:#809a6f;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.banner-imprint .imprint-branch{stroke:#abc18a;stroke-width:1.05}.banner-imprint .imprint-highlight{stroke:#d1dcb1;stroke-width:.55}
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.banner-imprint{display:none}}
 
 /* Compact school record: four tight rows, with role and distinction beneath each name. */

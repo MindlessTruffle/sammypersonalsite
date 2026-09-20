@@ -7,7 +7,7 @@ export const IMPRINT_OPACITY=.20;
 export function smoothImprint(state,target,elapsed=16){
  if(!state)return {state:{point:{...target},midpoint:{...target}},segments:[]};
  const dt=Math.max(1,Math.min(32,elapsed)),distance=Math.hypot(target.x-state.point.x,target.y-state.point.y);
- const speed=distance/dt,alpha=1-Math.exp(-dt/(34/(1+1.5*speed*speed)));
+ const speed=distance/dt,alpha=1-Math.exp(-dt/(44/(1+1.5*speed*speed)));
  const point={x:state.point.x+(target.x-state.point.x)*alpha,y:state.point.y+(target.y-state.point.y)*alpha};
  const end={x:(state.point.x+point.x)/2,y:(state.point.y+point.y)/2},start=state.midpoint,control=state.point;
  const length=Math.hypot(control.x-start.x,control.y-start.y)+Math.hypot(end.x-control.x,end.y-control.y);
