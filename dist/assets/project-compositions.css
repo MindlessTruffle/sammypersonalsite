@@ -23,3 +23,13 @@
 .notes .note-link:is(:hover,:focus-visible) .ui-icon{background:none;color:#8d382a}
 .notes .note-link:focus-visible{outline:2px solid #8d382a;outline-offset:3px}
 @media(max-width:1050px) and (min-width:761px){.notes .note-board{padding-inline:10px}.notes .note-title{font-size:16px}}
+
+/* Resume uses the same raised key, with an unmistakable blue face. */
+.detail-link.resume-link{margin-top:20px;padding-inline:12px;gap:10px;background:#286aa2;background-image:linear-gradient(#347db6 0 48%,#286aa2 48%);color:#f1f8ff;border-color:#152e48;text-shadow:0 1px #163b60;box-shadow:inset 2px 2px #83badb,inset -2px -3px #1b4d7b,0 5px 0 #173b60,0 7px 0 #112b37;font-size:18px;line-height:1.2}
+.resume-link span{min-width:0}
+.detail-link.resume-link::before{border-color:#aacfed66;background:linear-gradient(#c0e5fb,#c0e5fb) left top/3px 3px no-repeat,linear-gradient(#c0e5fb,#c0e5fb) right top/3px 3px no-repeat}
+.detail-link.resume-link::after{background:#d3efff77}
+.detail-link.resume-link .ui-icon{background:#183e61;color:#d9efff;box-shadow:inset 1px 1px #0f2c46,0 1px #85b8da}
+.detail-link.resume-link:is(:hover,:focus-visible){background-image:linear-gradient(#408bc2 0 48%,#337aaf 48%)}
+.detail-link.resume-link:focus-visible{outline-color:#c8ecff}
+.detail-link.resume-link:active{box-shadow:inset 2px 2px #1b4d7b,inset -2px -2px #83badb,0 1px 0 #173b60,0 3px 0 #112b37}
