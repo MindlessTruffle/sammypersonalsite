@@ -22,15 +22,15 @@ if(stations.length){
   // An unfolded contract, an actual traced signature, then a wax seal pressed into place.
   ctx.drawImage(socialSprite('contract'),33,4,36,32);
   if(write>0){
-   ctx.strokeStyle='#527ea0';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(...signature[0]);
+   ctx.strokeStyle='#242831';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(...signature[0]);
    for(let i=1;i<=index;i++)ctx.lineTo(...signature[i]);
    ctx.lineTo(Math.round(nib[0]),Math.round(nib[1]));ctx.stroke();
   }
   if(p<.68){
    const lift=Math.max(0,(p-.58)/.1),hover=write===0?Math.sin(t*2)*1.5:0;
-   ctx.save();ctx.globalAlpha=alpha*(1-lift);
+   ctx.save();ctx.globalAlpha=Math.min(1,alpha/.85)*.98*(1-lift);
    ctx.translate(Math.round(nib[0]-2+lift*8),Math.round(nib[1]-15-lift*9+hover));
-   ctx.rotate(Math.sin(t*7)*.035);ctx.drawImage(socialSprite('quill'),0,0);ctx.restore();
+   ctx.rotate(Math.sin(t*7)*.035);ctx.drawImage(socialSprite('pen'),0,0);ctx.restore();
   }
   if(p>.64){
    const stamp=Math.min(1,(p-.64)/.12),drop=(1-stamp)**2*10;

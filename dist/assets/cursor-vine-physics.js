@@ -1,7 +1,7 @@
 // Temporary marks expire by age, never by a distance or mark-count cap.
 export const IMPRINT_LIFETIME=3400;
 export const IMPRINT_BATCH_MS=240;
-export const IMPRINT_OPACITY=.25;
+export const IMPRINT_OPACITY=.20;
 // Speed-adaptive filtering absorbs tiny hand tremors, but releases on fast sweeps.
 // Midpoint quadratics share tangents; sampling happens before cloth-boundary clipping.
 export function smoothImprint(state,target,elapsed=16){

@@ -77,8 +77,8 @@ function appendSegment(mark,start,end){
  const ux=dx/length,uy=dy/length,nx=-uy,ny=ux,mx=(start.x+end.x)/2,my=(start.y+end.y)/2;
  mark.stems.push('M'+coord(start.x)+' '+coord(start.y)+' L'+coord(end.x)+' '+coord(end.y));
  surface.spacing+=length;
- if(surface.spacing<40)return;
- surface.spacing%=40;
+ if(surface.spacing<52)return;
+ surface.spacing%=52;
  const index=sequence++,side=index%2?1:-1,reach=9+(index%3)*2;
  const bx=mx+nx*side*reach+ux*3,by=my+ny*side*reach+uy*3;
  mark.twigs.push('M'+coord(mx)+' '+coord(my)+' Q'+coord(mx+nx*side*reach)+' '+coord(my+ny*side*reach)+' '+coord(bx)+' '+coord(by));

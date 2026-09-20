@@ -2,7 +2,7 @@
 const cache = new Map();
 const palette = { b:'#449ddb', d:'#246197', l:'#c4ecff', w:'#fff3ce',
   k:'#293846', g:'#a3cbb2', s:'#e0ac7a', t:'#a86e4e', p:'#e7dbb7',
-  c:'#548bba', n:'#577462' };
+  c:'#548bba', n:'#577462', i:'#14171b', h:'#59616b', m:'#c5ced5' };
 const maps = {
   bird: [
     '............','.......bb...','......blkb..','...bb.bbbbww',
@@ -26,11 +26,11 @@ const maps = {
     '.pwwwwwwwwp.', '.pwwwwwwwwp.', '.pwwwwwwwwp.', '.pwwwwwwwwp.',
     '.pwwwwwwwwp.', '.pppppppppp.',
   ],
-  quill: [
-    '...........ll..', '.........llll..', '........llwl...', '.......llwwl...',
-    '......llwwl....', '.....llwwl.....', '.....lwwl......', '....lwwl.......',
-    '....lwl........', '...lwl.........', '...wl..........', '..wl...........',
-    '..p............', '.n.............',
+  pen: [
+    '...........ii.', '..........ihi.', '.........immi.', '........ihmi..',
+    '.......ihii...', '......ihii....', '.....ihii.....', '....ihii......',
+    '...ihii.......', '...iii........', '..imi.........', '..mi..........',
+    '..i...........', '.i............',
   ],
 };
 export function socialSprite(kind, frame = 0) {

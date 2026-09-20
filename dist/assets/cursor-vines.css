@@ -19,6 +19,6 @@
 .school-highlights li{padding-left:10px;border-left:2px solid #b4c18755;font-size:14px;line-height:1.35}
 .school-highlights strong{display:block;font-weight:650;color:#f3efd4;font-size:14px}
 .school-highlights span{display:block;color:#d9e1ca;font-size:13px;margin-top:1px}
-.roblox-panel .roblox-emblem{position:absolute;width:74px;height:74px;object-fit:contain;right:12px;top:19px;opacity:.12;transform:rotate(10deg);pointer-events:none;filter:saturate(.7);z-index:0}
+.roblox-panel .roblox-emblem{position:absolute;width:74px;height:74px;object-fit:contain;right:12px;top:19px;opacity:.22;transform:rotate(10deg);pointer-events:none;filter:saturate(.7);z-index:0}
 .roblox-panel>h2,.roblox-panel .group-list{position:relative;z-index:1}
 @media(max-width:1050px) and (min-width:761px){.roblox-panel .roblox-emblem{width:58px;height:58px;right:8px}}

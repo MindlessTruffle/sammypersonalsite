@@ -12,7 +12,7 @@ Animals are small cached pixel sprites with cat swings, fox pounces, rabbit hops
 flights. Suspend animation when hidden or behind the page portal, and respect reduced motion.
 Keep purchase button design and quiet money orbit; retain arcade frame and social particles.
 Social buttons use cached bird, binary, handshake, and signing-paper sprites beneath real logos.
-Social scenes idle continuously at 24fps: banking birds, flowing binary, quill signing and wax-seal stamping.
+Social scenes idle continuously at 24fps: banking birds, flowing binary, black-pen signing and wax-seal stamping.
 Keep larger keys and both handles centered above the row (Discord: chatgpt9). Pause effects
 offscreen, in dialogs, and for reduced motion; use static scenes when motion is reduced.
 Use a small bright chromatic arrow cursor with brief RGB glitch flickers, no dark outline.
@@ -44,6 +44,6 @@ command menu dispatches the shared portfolio:overlay event for all decorative ef
 
 Fast pointer strokes use coalesced samples and cached cloth-boundary clipping so quick
 sweeps remain continuous across sections without drawing through banner gaps. Offshoots are
-spaced about 40px apart; stems remain immediate and leaf/flower growth stays delayed.
-Keep vine opacity at 0.25. Use speed-adaptive pointer smoothing and midpoint curves to
+spaced about 52px apart; stems remain immediate and leaf/flower growth stays delayed.
+Keep vine opacity at 0.20. Use speed-adaptive pointer smoothing and midpoint curves to
 absorb hand tremors without limiting fast sweeps. Ease the tail to a stopped pointer.

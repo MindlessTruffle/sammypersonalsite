@@ -25,7 +25,7 @@ npm run check covers local references, the cat route, and portal navigation elig
 Main additions: adventure-ui.css, creature-motion.js, pixel-animals.js, and sword-tear.js.
 
 Social keys and handles are centered. Three quiet pixel scenes idle beneath the larger logos:
-birds banking and soaring, binary flowing along commit branches, and a quill tracing a signature, a wax seal, and a handshake. They pause offscreen, in dialogs, and for reduced motion.
+birds banking and soaring, binary flowing along commit branches, and a black pen tracing a signature, a wax seal, and a handshake. They pause offscreen, in dialogs, and for reduced motion.
 
 Fine pointers use a bright 24px chromatic cursor with occasional brief TV-glitch flickers.
 Pointer movement paints temporary vines into banner backgrounds. Marks remain fixed to the
@@ -48,6 +48,6 @@ behind dialogs, including the command menu and closing wipe.
 
 Fast pointer strokes use coalesced samples and cached cloth-boundary clipping so quick
 sweeps remain continuous across sections without drawing through banner gaps. Offshoots are
-spaced about 40px apart; stems remain immediate and leaf/flower growth stays delayed.
-Vines use 25% opacity. Speed-adaptive smoothing softens hand tremors, midpoint curves
+spaced about 52px apart; stems remain immediate and leaf/flower growth stays delayed.
+Vines use 20% opacity. Speed-adaptive smoothing softens hand tremors, midpoint curves
 round the path, and a short eased tail settles to the pointer when it stops moving.
