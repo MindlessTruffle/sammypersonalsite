@@ -1,0 +1,78 @@
+html{scrollbar-gutter:stable}
+/* Painted once: visible weave, small worn threads, and soft static fabric folds. */
+.banner{background-image:url('/sammypersonalsite/assets/cloth-weave.svg'),linear-gradient(90deg,#00000018,transparent 12%,#fff4cc08 28%,transparent 39%,#0000000c 54%,#fff4cc06 72%,transparent 86%,#00000020);background-color:var(--cloth);background-size:96px 96px,100% 100%}
+.banner::after{background-image:url('/sammypersonalsite/assets/cloth-weave.svg'),linear-gradient(90deg,#00000018,transparent 20%,#fff4cc08 50%,transparent 80%,#00000020);background-color:var(--cloth);background-size:96px 96px,100% 100%}
+.cloth-shader,.cat-scene{display:none}
+.pet-stage{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:visible}
+.pet{position:absolute;top:0;left:0;width:64px;height:56px;pointer-events:none;transform-origin:50% 100%;contain:layout style}
+.pet canvas{display:block;width:64px;height:56px;image-rendering:pixelated;transform-origin:50% 100%}
+.pet-rope{position:absolute;inset:0;width:100%;overflow:visible;pointer-events:none}
+.pet-rope line{stroke:#ead19ca3;stroke-width:2;vector-effect:non-scaling-stroke}
+/* Raised brass menu keys: broad targets, inset emblems, and a short press travel. */
+.open-project,.detail-link{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:8px 20px;border:2px solid #243238;border-radius:0;background:#e7bd68;background-image:linear-gradient(#ffe3a0 0 48%,#eac471 48% 100%);color:#343b32;box-shadow:inset 2px 2px #fff2c5,inset -2px -3px #b1853f,0 5px 0 #75522e,0 7px 0 #172c35;font:600 20px/1 'Pixelify Sans',sans-serif;text-decoration:none;text-shadow:0 1px #fff0bc;transition:transform .16s cubic-bezier(.2,.8,.2,1)}
+.open-project{grid-column:1/-1;width:100%;margin-top:3px;margin-bottom:7px}
+.open-project::before,.detail-link::before{content:'';position:absolute;inset:5px;border:1px solid #9e763f77;pointer-events:none;background:linear-gradient(#fff1bd,#fff1bd) left top/3px 3px no-repeat,linear-gradient(#fff1bd,#fff1bd) right top/3px 3px no-repeat,linear-gradient(#9b7034,#9b7034) left bottom/3px 3px no-repeat,linear-gradient(#9b7034,#9b7034) right bottom/3px 3px no-repeat}
+.open-project::after,.detail-link::after{content:'';position:absolute;inset:0 auto 0 0;width:24px;background:#fff6d988;transform:translateX(-70px) skewX(-20deg);opacity:0;pointer-events:none;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .2s}
+.open-project .ui-icon,.detail-link .ui-icon{width:28px;height:28px;padding:4px;flex:none;color:#fff0b9;background:#365354;box-shadow:inset 1px 1px #192f35,0 1px #fff0b9;stroke-width:1.8;transition:transform .16s}
+.project-caption{display:grid;grid-template-columns:28px minmax(0,1fr);gap:9px 10px}.project-caption>div{min-width:0}
+.project-entry{cursor:pointer;transition:background-color .18s}
+.project-entry:hover,.project-entry:focus-visible{background-color:#c9e5d31a}
+.project-entry:is(:hover,:focus-visible) .open-project,.detail-link:is(:hover,:focus-visible){background-color:#f7d88a;background-image:linear-gradient(#fff0b9 0 48%,#f4d085 48% 100%);transform:translateY(-2px)}
+.project-entry:is(:hover,:focus-visible) .open-project::after,.detail-link:is(:hover,:focus-visible)::after{transform:translateX(360px) skewX(-20deg);opacity:.7}
+.project-entry:is(:hover,:focus-visible) .open-project .ui-icon,.detail-link:is(:hover,:focus-visible) .ui-icon{transform:rotate(-7deg)}
+.project-entry:focus-visible .open-project,.detail-link:focus-visible{outline:3px solid #fff6cf;outline-offset:4px}
+.project-entry:active .open-project,.detail-link:active{transform:translateY(4px);box-shadow:inset 2px 2px #b1853f,inset -2px -2px #fff0bb,0 1px 0 #75522e,0 3px 0 #172c35}
+.project-entry .project-art{box-shadow:0 3px 0 #16323e;transition:filter .18s}
+.project-entry:hover .project-art{filter:brightness(1.06)}
+.detail-link{width:100%;margin-top:16px;margin-bottom:7px;font-size:19px}.detail-link .ui-icon{order:-1}
+.group-item{padding:5px 0;transition:background .15s}.group-item:hover{background:#f9d29710}
+.group-item h3,.work-info strong{text-decoration:underline;text-decoration-color:#e4d1a56e;text-underline-offset:4px;text-decoration-thickness:1px}
+.group-item:hover h3,.work-entry:hover strong{text-decoration-color:currentColor}
+.group-item .ui-icon{color:#e9cb97;margin-left:2px;width:16px;height:16px}
+.note-link{min-height:57px;border-bottom:1px dashed #b8c8bd38}
+.note-link .ui-icon{background:#bcd2c3;color:#294750;width:25px;height:25px;padding:4px;box-shadow:0 2px 0 #173341}
+.note-link:hover{background:#d0e7d710}.note-link:hover .ui-icon{background:#e3dfaa}
+.work-entry .work-logo{box-shadow:0 3px 0 #122e26,inset 0 1px #fff;transition:transform .15s}
+.work-entry:hover .work-logo{transform:translateY(-2px)}
+.inline-brand span{text-decoration-thickness:1px}.inline-brand:hover span{text-decoration-thickness:2px}
+.name:hover{color:#6d452c}
+
+/* Sword tear: native dialog focus trap, live article, two large close targets. */
+body.tear-open{overflow:hidden}
+body.tear-open> .site-shell{visibility:hidden}
+#sword-portal{inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;padding:0;border:0;border-radius:0;background:#fff8e8;color:#293c3d;box-shadow:none;overflow:hidden}
+#sword-portal::backdrop{background:#183331;backdrop-filter:none}
+.tear-layout{height:100%;display:grid;grid-template-rows:clamp(65px,13dvh,112px) minmax(0,1fr) clamp(65px,13dvh,112px)}
+.tear-close{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;width:100%;border:0;border-radius:0;min-height:60px;color:#fff1cf;font:500 27px 'Pixelify Sans';text-shadow:2px 2px #471b25;background-color:#962e35;background-image:conic-gradient(#511f2c55 25%,transparent 0 50%,#511f2c55 0 75%,transparent 0);background-size:36px 36px;box-shadow:inset 0 5px #d5715980,inset 0 -5px #491d2e;cursor:pointer;z-index:2;transition:filter .15s}
+.tear-close-top{clip-path:polygon(0 0,100% 0,100% 94%,94% 94%,94% 100%,86% 100%,86% 94%,73% 94%,73% 98%,60% 98%,60% 93%,48% 93%,48% 100%,33% 100%,33% 95%,18% 95%,18% 100%,8% 100%,8% 94%,0 94%)}
+.tear-close-bottom{clip-path:polygon(0 7%,9% 7%,9% 0,23% 0,23% 5%,36% 5%,36% 0,50% 0,50% 7%,65% 7%,65% 2%,80% 2%,80% 7%,93% 7%,93% 0,100% 0,100% 100%,0 100%)}
+.tear-close:hover{filter:brightness(1.18)}.tear-close:active{filter:brightness(.9)}
+.tear-close:focus-visible{outline:3px solid #fff4bd;outline-offset:-12px}
+.tear-close svg{width:24px;height:24px;filter:drop-shadow(2px 2px #4c1c27)}
+.tear-close kbd{font:13px 'Nunito Sans',sans-serif;padding:2px 6px;border:1px solid #e8bc9980;text-shadow:none;opacity:.8}
+.tear-window.detail{overflow:auto;overscroll-behavior:contain;min-height:0;padding:24px 30px;background:#fff8e8;border:0;box-shadow:none;scrollbar-color:#ac9473 #eee2c9}
+.tear-content{width:min(790px,100%);margin:auto}
+.tear-content article{padding:0 0 25px}.tear-content .detail-heading h1{font-size:clamp(30px,4vw,47px);margin:9px 0 22px}.tear-content .detail-art{max-height:290px}.tear-content .detail-art img{max-height:290px;object-fit:cover}.tear-content .intro{font-size:18px}.tear-content .sample-stats dd{color:#635330}.tear-content a{color:#76502d}
+.tear-loading{padding:36px 0;font:500 25px 'Pixelify Sans',monospace}.tear-native{display:inline-block;text-decoration:underline;font-weight:700;padding:10px 0}
+.slash-fx{position:absolute;inset:0;pointer-events:none;z-index:8;visibility:hidden}.slash-fx.is-cutting{visibility:visible}
+.slash-anticipation{position:absolute;inset:0;background:#11232e;opacity:0}
+.katana-arc,.slash-rift{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.katana-arc{opacity:0;transform-origin:50% 44%}
+.katana-wake{fill:#91dce5;opacity:.35}.katana-crescent{fill:#f5ffff}.katana-edge{fill:#fff}
+.katana-echo{fill:none;stroke:#d2f4ef;stroke-width:3;stroke-dasharray:1000;stroke-dashoffset:1000;opacity:0}
+.slash-rift path{fill:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:1000;stroke-dashoffset:1000;opacity:0}
+.rift-shadow{stroke:#153442}.rift-light{stroke:#fffcef}
+.slash-flash{position:absolute;inset:0;background:#fff;opacity:0}
+.slash-spark{position:absolute;width:24px;height:4px;opacity:0;background:#fff6d3;clip-path:polygon(0 50%,65% 0,100% 50%,65% 100%);filter:drop-shadow(0 0 2px #fff7bd)}
+.tear-shard{position:absolute;inset:0;z-index:5;pointer-events:none;background:#aac5cb;overflow:hidden;isolation:isolate}
+.tear-shard::before{content:'';position:absolute;inset:-12px;z-index:-1;background:url('/sammypersonalsite/assets/castle-courtyard-refined.png') center/cover no-repeat;filter:blur(4px) saturate(.85)}
+.tear-copy{visibility:visible!important}.tear-copy *{animation:none!important;transition:none!important}.tear-copy .preview-fallback{display:grid!important}.tear-copy .preview-status{display:none}
+/* The closing wipe uses its own top layer, so the page can return beneath full coverage. */
+#closing-wipe{position:fixed;inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:hidden;color:#fff1c9;outline:none}
+#closing-wipe::backdrop{background:transparent;backdrop-filter:none}
+.closing-wipe-sheet{position:absolute;inset:0 -8%;display:grid;place-items:center;background:#172327;background-image:url('/sammypersonalsite/assets/cloth-weave.svg');background-size:96px 96px;transform:translateX(-105%);clip-path:polygon(0 0,97% 0,97% 12%,99% 12%,99% 32%,100% 32%,100% 100%,3% 100%,3% 88%,1% 88%,1% 68%,0 68%)}
+.closing-wipe-sheet p{max-width:min(620px,78vw);padding:24px;text-align:center;font:500 clamp(26px,4vw,46px)/1.25 'Pixelify Sans',monospace;text-wrap:balance;text-shadow:2px 3px #0b141a}
+.closing-wipe-sheet p span{color:#d8bd7a;white-space:nowrap}
+@media(max-width:1050px) and (min-width:761px){.open-project,.detail-link{padding-inline:12px;gap:9px;font-size:18px}.project-caption{gap:9px 7px}}
+@media(max-width:600px){.tear-layout{grid-template-rows:66px minmax(0,1fr) 66px}.tear-close{font-size:23px;background-size:28px 28px}.tear-window.detail{padding:20px}.tear-content .detail-heading h1{font-size:32px}.tear-content .detail-art,.tear-content .detail-art img{max-height:200px}.pet{width:64px}.tear-close kbd{display:none}}
+@media(prefers-reduced-motion:reduce){.slash-fx,.tear-shard{display:none!important}.project-art,.open-project,.detail-link,.work-logo,.open-project .ui-icon,.detail-link .ui-icon{transition:none!important}.open-project::after,.detail-link::after{display:none}}

@@ -1,9 +1,17 @@
 # Sammy Hawari — medieval portfolio
 
-Standalone repository: sammypersonalsite, main branch. Medieval portfolio snapshot.
-Localhost-only preview: http://127.0.0.1:4174/.
-Double-click start-local.cmd, or run npm run build and npm run dev.
-No dependencies to install; Node.js required. Never deploy without explicit user request.
+Standalone repository: sammypersonalsite, main branch. Medieval portfolio.
+GitHub Pages: https://mindlesstruffle.github.io/sammypersonalsite/
+
+GitHub Pages publishes the ready-built `docs/` folder from `main`. Visitors and hosting
+need no Node.js server: these are static HTML, CSS, JavaScript, images, and fonts.
+Node.js is only a development tool for regenerating pages and running the local preview.
+No npm dependencies need installing. To publish edits, run `npm run build:pages` and
+`npm run check:pages`, then commit and push `docs/` with the source changes.
+
+Local preview: http://127.0.0.1:4174/. Double-click start-local.cmd, or run
+`npm run build` and `npm run dev`. GitHub Pages hosting is explicitly authorized for
+this project; do not switch hosting providers without a new request.
 
 Three static textured cloth columns retain all portfolio content. The former WebGL cloth
 shader is removed. Four cached pixel animals replace full-page canvas rendering, pausing
@@ -18,8 +26,10 @@ then a jagged fissure, followed by page expansion. Both torn edges share the sam
 The article and red menu buttons settle together. Escape remains
 available throughout. The article becomes interactive after the reveal completes.
 
-Number Company still uses the existing localhost:3000 shirt preview. Background polling and
-decorative animations pause while offscreen/covered. Artwork and genuine company logos remain.
+Number Company uses the existing localhost:3000 shirt preview during local development.
+GitHub Pages shows the saved shirt image and a link to project details, with no localhost
+requests or live purchase claims. Background polling and decorative animations pause while
+offscreen/covered. Artwork and genuine company logos remain.
 
 npm run check covers local references, the cat route, and portal navigation eligibility.
 Main additions: adventure-ui.css, creature-motion.js, pixel-animals.js, and sword-tear.js.

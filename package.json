@@ -5,6 +5,8 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "node scripts/serve.mjs",
-    "check": "node scripts/check.mjs && node scripts/check-motion.mjs && node scripts/check-tear.mjs && node scripts/check-social-motion.mjs && node scripts/check-close-wipe.mjs && node scripts/check-performance.mjs"
+    "check": "node scripts/check.mjs && node scripts/check-motion.mjs && node scripts/check-tear.mjs && node scripts/check-social-motion.mjs && node scripts/check-close-wipe.mjs && node scripts/check-performance.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "check:pages": "node scripts/check-pages.mjs"
   }
 }

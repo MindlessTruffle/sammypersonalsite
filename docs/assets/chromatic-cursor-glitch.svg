@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="28" viewBox="0 0 26 28">
+ <defs><path id="pointer" d="M4 3C3 2.4 2.7 3.3 2.8 4.5L4.1 21C4.2 22.5 5.1 22.9 6.2 21.8L10 17.9L13.5 25C14.1 26.2 15.3 26.5 16.5 25.9L18.3 25C19.5 24.4 19.8 23.1 19.1 22L15.3 15.7L21.7 15.1C23.3 15 23.6 13.8 22.3 12.8Z"/><clipPath id="inside"><use href="#pointer"/></clipPath></defs>
+ <use href="#pointer" fill="#fff0c9"/>
+ <g clip-path="url(#inside)"><path d="M2 10h19M10 21h9" stroke="#e8a4bd" stroke-width="2"/><path d="M5 12h16M11 23h8" stroke="#96dbc9" stroke-width="2"/></g>
+ <use href="#pointer" fill="none" stroke="#29323b" stroke-width="3.2" stroke-linejoin="round"/>
+ <path d="m6 7 .3 3" stroke="#fffdf0" stroke-width="2" stroke-linecap="round"/>
+</svg>

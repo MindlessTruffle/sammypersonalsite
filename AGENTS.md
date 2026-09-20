@@ -1,7 +1,11 @@
 # Active medieval portfolio
 
 Sammy chose this version over the mushroom cave. Work here on main, localhost:4174.
-Never deploy without explicit request. Keep preview and start-local.cmd usable.
+GitHub Pages hosting is now explicitly authorized for this project. Publish `docs/` from
+main; regenerate with npm run build:pages and verify with npm run check:pages before pushing.
+Keep localhost:4174 and start-local.cmd usable. Do not switch hosting providers unasked.
+The public build must never request a visitor's localhost: use the static shirt image and
+project-details link online, and retain the live local preview only in dist/.
 
 Keep three forest/fire/water cloth columns, readable body text, pixel headings, strong section
 dividers, existing project info, actual brand logos, Neo Dev League award/organizer note, and

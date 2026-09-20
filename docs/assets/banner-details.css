@@ -1,0 +1,75 @@
+/* Soft scenery, crisp foreground pixels. */
+body::before{inset:-12px;filter:blur(4px) saturate(.85);background-image:url('/sammypersonalsite/assets/castle-courtyard-refined.png')}
+.site-shell{position:relative}
+.recent-subnote{display:block;font-size:13px;line-height:1.5;margin-top:5px;color:#cfdfba}
+.recent-brand img[src$="neo-league-logo.png"]{width:19px;height:19px;vertical-align:-5px}
+
+/* Gold pixel embroidery divides full-width cloth bands, never nested cards. */
+.banner{--band-pad:27px;--band-veil:#0a182622}
+.school,.work-section,.recent-section,.roblox-panel,.social-panel,.notes,.project-entry{position:relative}
+.school,.work-section,.recent-section,.roblox-panel,.notes{margin-inline:calc(-1 * var(--band-pad));padding-inline:var(--band-pad);padding-top:26px;padding-bottom:20px;border-top:0}
+.school{background:#adc9980c;margin-bottom:-24px;padding-bottom:23px}
+.work-section{background:#091d1c24;margin-bottom:-24px}
+.recent-section{background:#a7c88c0c}
+.roblox-panel{background:#36191e30;margin-top:24px}
+.notes{background:#112b493a;margin-top:23px}
+.school::before,.work-section::before,.recent-section::before,.roblox-panel::before,.notes::before,.social-panel::before,.project-entry+.project-entry::before{content:'';position:absolute;left:9px;right:9px;top:0;height:12px;background:url('/sammypersonalsite/assets/embroidered-divider.svg') center/100% 12px no-repeat;pointer-events:none;image-rendering:pixelated;opacity:.8}
+.project-list{gap:0}
+.project-entry{margin-inline:calc(-1 * var(--band-pad));padding-inline:var(--band-pad);padding-bottom:21px;background:#b5d4d70a}
+.project-entry+.project-entry{padding-top:28px;margin-top:0;border-top:0;background:#10243e26}
+.project-rail .notes{margin-top:0}
+.project-rail footer{padding-top:17px}
+.social-panel{padding-top:22px;margin-top:0}
+.social-panel::before{left:calc(-1 * var(--band-pad) + 9px);right:calc(-1 * var(--band-pad) + 9px)}
+.about-panel .forest-vignette{margin-top:0}
+
+/* Sewn panels: distinct dyed cloth within each continuous hanging banner. */
+.school{--section-cloth:#3c5941;--section-trim:#b8c98a}
+.work-section{--section-cloth:#203e36;--section-trim:#8ebca1}
+.recent-section{--section-cloth:#424e32;--section-trim:#dac888}
+.roblox-panel{--section-cloth:#61342f;--section-trim:#dfa675}
+.project-rail .project-entry.icon{--section-cloth:#315e6b;--section-trim:#9ad1cd}
+.project-rail .project-entry.larp{--section-cloth:#293f61;--section-trim:#9bb9dc}
+.notes{--section-cloth:#243c46;--section-trim:#c7bd92}
+.school,.work-section,.recent-section,.roblox-panel,.project-rail .project-entry,.notes{
+ background-color:var(--section-cloth);
+ background-image:url('/sammypersonalsite/assets/cloth-weave.svg'),linear-gradient(90deg,#081d2520,transparent 18%,#fff0c407 65%,#081d251c);
+ background-size:96px 96px,100% 100%;
+ box-shadow:inset 0 -2px #10252940,inset 3px 0 #ead5a21a,inset -3px 0 #ead5a21a;
+}
+.school::before,.work-section::before,.recent-section::before{
+ background-image:url('/sammypersonalsite/assets/divider-forest.svg');height:14px;opacity:.95;
+}
+.school::before{opacity:.7}
+.roblox-panel::before,.social-panel::before{background-image:url('/sammypersonalsite/assets/divider-ember.svg');height:14px;opacity:.95}
+.project-entry+.project-entry::before,.notes::before{background-image:url('/sammypersonalsite/assets/divider-water.svg');height:14px;opacity:.95}
+.school h2,.work-section h2,.recent-section h2,.roblox-panel>h2,.notes h2{color:var(--section-trim)}
+.recent-subnote{color:#e0e3c4}
+.project-rail .project-entry.icon:is(:hover,:focus-visible){background-color:#396b76}
+.project-rail .project-entry.larp:is(:hover,:focus-visible){background-color:#344f72}
+.project-rail .notes h2{color:#e5d5a8}
+.notes .note-board{border-top:1px dashed #b5c4b14a}
+.notes .note-link{border-bottom-color:#b5c4b14a}
+.notes .note-link .ui-icon{background:#dfcea2;color:#334646;box-shadow:0 2px 0 #142e36}
+
+/* Socials form a quiet copper hem, with the existing particle space preserved. */
+.middle-column .social-panel{
+ margin-inline:calc(-1 * var(--band-pad));padding-inline:var(--band-pad);
+ background:url('/sammypersonalsite/assets/cloth-weave.svg') 0 0/96px 96px,#794631;
+ box-shadow:inset 0 -2px #452e2b55;
+}
+.middle-column .social-panel::before{left:9px;right:9px}
+
+/* The product's white stage is inset into an arcade cabinet rim. */
+.product-stage{border:3px solid #273144;outline:2px solid #c8a66c;box-shadow:inset 3px 3px #fffdf4,inset -3px -3px #d0c8b5,0 5px 0 #482b30;margin-top:3px;margin-bottom:5px}
+.arcade-frame{position:absolute;inset:-6px;width:calc(100% + 12px);height:calc(100% + 12px);pointer-events:none;z-index:3;overflow:visible}
+.arcade-rainbow{vector-effect:non-scaling-stroke;fill:none;stroke:url('#arcade-colours');stroke-width:4;stroke-linecap:square;stroke-dasharray:180 820;stroke-dashoffset:1000;opacity:0;animation:arcade-burst 10s linear 10s infinite}
+.arcade-halo{stroke-width:9;filter:blur(3px);animation-name:arcade-halo}
+.effects-paused .arcade-rainbow{animation-play-state:paused}
+@keyframes arcade-burst{0%{opacity:0;stroke-dashoffset:1000}3%{opacity:.95}20%{opacity:.85;stroke-dashoffset:0}24%,100%{opacity:0;stroke-dashoffset:-180}}
+@keyframes arcade-halo{0%{opacity:0;stroke-dashoffset:1000}3%{opacity:.3}20%{opacity:.2;stroke-dashoffset:0}24%,100%{opacity:0;stroke-dashoffset:-180}}
+@media(min-width:1500px){.banner{--band-pad:31px}}
+@media(max-width:1050px) and (min-width:761px){.banner{--band-pad:16px}}
+@media(max-width:760px){.banner{--band-pad:25px}.school,.work-section{margin-bottom:-23px}.recent-section{padding-bottom:22px}.cat-scene{z-index:3}body::before{filter:blur(3px) saturate(.85)}}
+@media(max-width:359px){.banner{--band-pad:18px}}
+@media(prefers-reduced-motion:reduce){.arcade-rainbow{animation:none;opacity:0}}
