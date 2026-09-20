@@ -45,3 +45,5 @@ command menu dispatches the shared portfolio:overlay event for all decorative ef
 Fast pointer strokes use coalesced samples and cached cloth-boundary clipping so quick
 sweeps remain continuous across sections without drawing through banner gaps. Offshoots are
 spaced about 40px apart; stems remain immediate and leaf/flower growth stays delayed.
+Keep vine opacity at 0.25. Use speed-adaptive pointer smoothing and midpoint curves to
+absorb hand tremors without limiting fast sweeps. Ease the tail to a stopped pointer.

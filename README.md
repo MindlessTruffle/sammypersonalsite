@@ -49,3 +49,5 @@ behind dialogs, including the command menu and closing wipe.
 Fast pointer strokes use coalesced samples and cached cloth-boundary clipping so quick
 sweeps remain continuous across sections without drawing through banner gaps. Offshoots are
 spaced about 40px apart; stems remain immediate and leaf/flower growth stays delayed.
+Vines use 25% opacity. Speed-adaptive smoothing softens hand tremors, midpoint curves
+round the path, and a short eased tail settles to the pointer when it stops moving.
