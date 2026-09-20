@@ -1,7 +1,8 @@
 # Sammy Hawari — medieval portfolio
 
 Standalone repository: sammypersonalsite, main branch. Medieval portfolio.
-GitHub Pages custom domain: https://sammyhawari.com/
+GitHub Pages: https://mindlesstruffle.github.io/sammypersonalsite/
+Custom-domain redirect is disabled for now.
 
 GitHub Pages publishes the ready-built `docs/` folder from `main`. Visitors and hosting
 need no Node.js server: these are static HTML, CSS, JavaScript, images, and fonts.

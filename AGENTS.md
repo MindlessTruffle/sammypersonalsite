@@ -3,6 +3,7 @@
 Sammy chose this version over the mushroom cave. Work here on main, localhost:4174.
 GitHub Pages hosting is now explicitly authorized for this project. Publish `docs/` from
 main; regenerate with npm run build:pages and verify with npm run check:pages before pushing.
+Custom-domain redirect is disabled for now. Keep docs/CNAME absent unless Sammy asks to restore it.
 Keep localhost:4174 and start-local.cmd usable. Do not switch hosting providers unasked.
 The public build must never request a visitor's localhost: use the static shirt image and
 project-details link online, and retain the live local preview only in dist/.

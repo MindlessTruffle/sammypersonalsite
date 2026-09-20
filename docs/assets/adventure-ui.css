@@ -1,7 +1,7 @@
 html{scrollbar-gutter:stable}
 /* Painted once: visible weave, small worn threads, and soft static fabric folds. */
-.banner{background-image:url('/assets/cloth-weave.svg'),linear-gradient(90deg,#00000018,transparent 12%,#fff4cc08 28%,transparent 39%,#0000000c 54%,#fff4cc06 72%,transparent 86%,#00000020);background-color:var(--cloth);background-size:96px 96px,100% 100%}
-.banner::after{background-image:url('/assets/cloth-weave.svg'),linear-gradient(90deg,#00000018,transparent 20%,#fff4cc08 50%,transparent 80%,#00000020);background-color:var(--cloth);background-size:96px 96px,100% 100%}
+.banner{background-image:url('/sammypersonalsite/assets/cloth-weave.svg'),linear-gradient(90deg,#00000018,transparent 12%,#fff4cc08 28%,transparent 39%,#0000000c 54%,#fff4cc06 72%,transparent 86%,#00000020);background-color:var(--cloth);background-size:96px 96px,100% 100%}
+.banner::after{background-image:url('/sammypersonalsite/assets/cloth-weave.svg'),linear-gradient(90deg,#00000018,transparent 20%,#fff4cc08 50%,transparent 80%,#00000020);background-color:var(--cloth);background-size:96px 96px,100% 100%}
 .cloth-shader,.cat-scene{display:none}
 .pet-stage{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:visible}
 .pet{position:absolute;top:0;left:0;width:64px;height:56px;pointer-events:none;transform-origin:50% 100%;contain:layout style}
@@ -65,12 +65,12 @@ body.tear-open> .site-shell{visibility:hidden}
 .slash-flash{position:absolute;inset:0;background:#fff;opacity:0}
 .slash-spark{position:absolute;width:24px;height:4px;opacity:0;background:#fff6d3;clip-path:polygon(0 50%,65% 0,100% 50%,65% 100%);filter:drop-shadow(0 0 2px #fff7bd)}
 .tear-shard{position:absolute;inset:0;z-index:5;pointer-events:none;background:#aac5cb;overflow:hidden;isolation:isolate}
-.tear-shard::before{content:'';position:absolute;inset:-12px;z-index:-1;background:url('/assets/castle-courtyard-refined.png') center/cover no-repeat;filter:blur(4px) saturate(.85)}
+.tear-shard::before{content:'';position:absolute;inset:-12px;z-index:-1;background:url('/sammypersonalsite/assets/castle-courtyard-refined.png') center/cover no-repeat;filter:blur(4px) saturate(.85)}
 .tear-copy{visibility:visible!important}.tear-copy *{animation:none!important;transition:none!important}.tear-copy .preview-fallback{display:grid!important}.tear-copy .preview-status{display:none}
 /* The closing wipe uses its own top layer, so the page can return beneath full coverage. */
 #closing-wipe{position:fixed;inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:hidden;color:#fff1c9;outline:none}
 #closing-wipe::backdrop{background:transparent;backdrop-filter:none}
-.closing-wipe-sheet{position:absolute;inset:0 -8%;display:grid;place-items:center;background:#172327;background-image:url('/assets/cloth-weave.svg');background-size:96px 96px;transform:translateX(-105%);clip-path:polygon(0 0,97% 0,97% 12%,99% 12%,99% 32%,100% 32%,100% 100%,3% 100%,3% 88%,1% 88%,1% 68%,0 68%)}
+.closing-wipe-sheet{position:absolute;inset:0 -8%;display:grid;place-items:center;background:#172327;background-image:url('/sammypersonalsite/assets/cloth-weave.svg');background-size:96px 96px;transform:translateX(-105%);clip-path:polygon(0 0,97% 0,97% 12%,99% 12%,99% 32%,100% 32%,100% 100%,3% 100%,3% 88%,1% 88%,1% 68%,0 68%)}
 .closing-wipe-sheet p{max-width:min(620px,78vw);padding:24px;text-align:center;font:500 clamp(26px,4vw,46px)/1.25 'Pixelify Sans',monospace;text-wrap:balance;text-shadow:2px 3px #0b141a}
 .closing-wipe-sheet p span{color:#d8bd7a;white-space:nowrap}
 @media(max-width:1050px) and (min-width:761px){.open-project,.detail-link{padding-inline:12px;gap:9px;font-size:18px}.project-caption{gap:9px 7px}}
