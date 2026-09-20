@@ -1,13 +1,15 @@
 # Sammy Hawari — medieval portfolio
 
 Standalone repository: sammypersonalsite, main branch. Medieval portfolio.
-GitHub Pages: https://mindlesstruffle.github.io/sammypersonalsite/
+GitHub Pages custom domain: https://sammyhawari.com/
 
 GitHub Pages publishes the ready-built `docs/` folder from `main`. Visitors and hosting
 need no Node.js server: these are static HTML, CSS, JavaScript, images, and fonts.
 Node.js is only a development tool for regenerating pages and running the local preview.
 No npm dependencies need installing. To publish edits, run `npm run build:pages` and
 `npm run check:pages`, then commit and push `docs/` with the source changes.
+The build preserves `docs/CNAME` and uses root URLs when a custom domain is configured;
+without CNAME it uses `/sammypersonalsite/` for the default GitHub Pages URL.
 
 Local preview: http://127.0.0.1:4174/. Double-click start-local.cmd, or run
 `npm run build` and `npm run dev`. GitHub Pages hosting is explicitly authorized for

@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {tearDestination} from '../dist/assets/tear-routes.js';
 
 const root=fileURLToPath(new URL('../docs/',import.meta.url));
-const base='/sammypersonalsite/';let pages=0,refs=0;
+const base=(await readFile(path.join(root,'index.html'),'utf8')).match(/name="site-root" content="([^"]+)"/)[1];let pages=0,refs=0;
 async function check(dir){
  for(const entry of await readdir(dir,{withFileTypes:true})){
   const file=path.join(dir,entry.name);
@@ -35,6 +35,7 @@ for(const item of index)if(item.url.startsWith('/'))assert.ok(item.url.startsWit
 for(const route of ['icon-emulator/','larpmegle/','notes/one-shirt-one-number/']){
  assert.equal(tearDestination(base+route,'https://mindlesstruffle.github.io'+base,{root:base}),base+route);
 }
-for(const route of ['/other/','/sammypersonalsite/','/sammypersonalsite/icon-emulator/?x=1'])assert.equal(tearDestination(route,'https://mindlesstruffle.github.io'+base,{root:base}),null);
+for(const route of [base,base+'icon-emulator/?x=1'])assert.equal(tearDestination(route,'https://mindlesstruffle.github.io'+base,{root:base}),null);
+assert.equal(tearDestination('/other/','https://mindlesstruffle.github.io/sammypersonalsite/',{root:'/sammypersonalsite/'}),null);
 await stat(path.join(root,'.nojekyll'));
 console.log(`Pages checks pass: ${pages} pages, ${refs} local references, prefixed search/portal routes, static shirt fallback.`);

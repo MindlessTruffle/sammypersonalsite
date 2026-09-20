@@ -1,6 +1,6 @@
 @media(hover:hover) and (pointer:fine){
- html{--cursor-default:url('/sammypersonalsite/assets/blade-cursor.svg');--cursor-link:url('/sammypersonalsite/assets/blade-cursor-active.svg')}
- html[data-cursor-glitch]{--cursor-default:url('/sammypersonalsite/assets/chromatic-cursor-glitch.svg');--cursor-link:url('/sammypersonalsite/assets/chromatic-cursor-glitch.svg')}
+ html{--cursor-default:url('/assets/blade-cursor.svg');--cursor-link:url('/assets/blade-cursor-active.svg')}
+ html[data-cursor-glitch]{--cursor-default:url('/assets/chromatic-cursor-glitch.svg');--cursor-link:url('/assets/chromatic-cursor-glitch.svg')}
  html,body,body *{cursor:var(--cursor-default) 3 3,auto}
  a,button,[role=button],a *,button *,[role=button] *{cursor:var(--cursor-link) 3 3,pointer}
  input:not([type=button]):not([type=submit]),textarea,[contenteditable=true],[contenteditable=true] *{cursor:text}

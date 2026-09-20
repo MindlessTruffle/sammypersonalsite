@@ -4,8 +4,10 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const root=fileURLToPath(new URL('../',import.meta.url));
-const base='/sammypersonalsite/';
 const output=path.join(root,'docs');
+// GitHub's custom-domain CNAME is preserved; custom domains serve from the root.
+const customDomain=await readFile(path.join(output,'CNAME'),'utf8').then(value=>value.trim()).catch(error=>{if(error.code==='ENOENT')return '';throw error;});
+const base=customDomain?'/':'/sammypersonalsite/';
 await cp(path.join(root,'dist'),output,{recursive:true});
 async function rewrite(dir){
  for(const entry of await readdir(dir,{withFileTypes:true})){

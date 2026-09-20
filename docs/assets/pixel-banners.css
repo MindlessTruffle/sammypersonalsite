@@ -1,7 +1,7 @@
 /* Original pixel-fantasy direction. Continuous banners; no project card frames. */
 :root{--paper:#fff0c4;--gold:#e8c46c;color:#172b39;background:#aac5cb}
 body{position:relative;isolation:isolate;background:#aac5cb}
-body::before{content:'';position:fixed;inset:0;z-index:-1;background:url('/sammypersonalsite/assets/castle-courtyard-pixel.png') center center/cover no-repeat;image-rendering:pixelated;pointer-events:none}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:url('/assets/castle-courtyard-pixel.png') center center/cover no-repeat;image-rendering:pixelated;pointer-events:none}
 .site-shell{gap:0 38px;margin-bottom:84px}
 .name-panel{padding:22px 0 28px}
 .name{font-family:'Pixelify Sans',monospace;font-size:27px;font-weight:600;letter-spacing:0;color:#172b39;text-shadow:2px 2px #eef0d5}
