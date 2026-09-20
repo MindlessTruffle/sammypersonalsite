@@ -1,9 +1,10 @@
 /* Original artwork and real captures remain separate, with a 7-degree feathered seam. */
 .art-split{position:absolute;inset:0;overflow:hidden;background:#8eb3b2}
 .art-split>.project-image{position:absolute;left:0;top:0;width:65%;height:100%;object-fit:cover;object-position:35% 70%}
-.art-split.larp>.project-image{object-position:65% 73%}
-.capture-side{position:absolute;inset:0;mask-image:linear-gradient(83deg,transparent calc(50% - 7px),#000 calc(50% + 7px));-webkit-mask-image:linear-gradient(83deg,transparent calc(50% - 7px),#000 calc(50% + 7px))}
+.art-split.larp>.project-image{left:-6%;object-position:65% 73%}
+.capture-side{position:absolute;inset:0;mask-image:linear-gradient(83deg,transparent calc(50% - 3px),#000 calc(50% + 3px));-webkit-mask-image:linear-gradient(83deg,transparent calc(50% - 3px),#000 calc(50% + 3px))}
 .capture-side img{position:absolute;right:0;top:0;width:60%;height:100%;object-fit:cover;object-position:50% 55%;image-rendering:auto}
+.art-split.icon .capture-side img{right:-5%}
 .art-split.larp .capture-side img{width:62%;object-position:65% 50%}
 .project-art:has(.art-split)::after{opacity:.3}
 
