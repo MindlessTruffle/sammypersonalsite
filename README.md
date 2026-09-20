@@ -27,7 +27,8 @@ Main additions: adventure-ui.css, creature-motion.js, pixel-animals.js, and swor
 Social keys and handles are centered. Three quiet pixel scenes idle beneath the larger logos:
 birds banking and soaring, binary flowing along commit branches, and a black pen tracing a signature, a wax seal, and a handshake. They pause offscreen, in dialogs, and for reduced motion.
 
-Fine pointers use a bright 24px chromatic cursor with occasional brief TV-glitch flickers.
+Fine pointers use a rounded 26px cream cursor with a thick dark outline, a mint link state,
+and occasional pastel glitch accents. Each fresh vine begins with an immediate flower.
 Pointer movement paints temporary vines into banner backgrounds. Marks remain fixed to the
 cloth, draw responsive stems immediately, grow paired leaves and varied flowers later, and fade over 3.4 seconds. No trails appear
 outside banners. Text fields keep the insertion cursor, and reduced motion disables effects.

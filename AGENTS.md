@@ -15,7 +15,8 @@ Social buttons use cached bird, binary, handshake, and signing-paper sprites ben
 Social scenes idle continuously at 24fps: banking birds, flowing binary, black-pen signing and wax-seal stamping.
 Keep larger keys and both handles centered above the row (Discord: chatgpt9). Pause effects
 offscreen, in dialogs, and for reduced motion; use static scenes when motion is reduced.
-Use a small bright chromatic arrow cursor with brief RGB glitch flickers, no dark outline.
+Use a compact rounded indie-game arrow cursor with a thick dark outline, cream fill,
+mint link state, and brief pastel glitch accents. Start each new vine with an immediate flower.
 Vines imprint immediately onto banner cloth, behind content, using fixed local coordinates.
 Draw fresh vine geometry each display frame with no stem delay. Spaced paired leaves and
 varied-color flowers grow after about one second, then fade within 3.4 seconds.

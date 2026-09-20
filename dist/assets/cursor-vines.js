@@ -5,11 +5,12 @@ const surfaceSelector='.school,.work-section,.recent-section,.roblox-panel,.soci
 const clothElements=[...document.querySelectorAll(surfaceSelector)].filter(element=>element.closest('.banner'));
 let geometry=null;
 let previous=null,filter=null,target=null,inputTime=0,frame=0,last=0,sequence=0,blocked=false,pointerInside=false,glitchTimer=0;
-function resetStroke(){previous=null;filter=null;target=null;inputTime=0;}
+let stroke=0,seededStroke=-1,seededBanner=null,lastMovement=0,flowerSequence=0;
+function resetStroke(){previous=null;filter=null;target=null;inputTime=0;stroke++;}
 function advanceStroke(point,now){
  const result=smoothImprint(filter,point,inputTime?now-inputTime:16);
  filter=result.state;target=point;inputTime=now;
- pending.push(...result.segments.map(segment=>({...segment,born:now})));
+ pending.push(...result.segments.map(segment=>({...segment,born:now,stroke})));
 }
 const allowed=()=>fine.matches&&!reduced.matches&&!document.hidden&&!blocked;
 const node=(name,attrs={})=>{const el=document.createElementNS(NS,name);for(const [key,value] of Object.entries(attrs))el.setAttribute(key,value);return el;};
@@ -92,13 +93,22 @@ function appendSegment(mark,start,end){
   anchor.append(bud);mark.group.append(anchor);mark.buds.push({node:bud,size:j?.48:.76});
  }
 }
+function plantFlower(mark,point){
+ // The first flower is visible with the stem; later foliage still grows on its delay.
+ const flower=node('use',{href:mark.surface.symbols[2+flowerSequence++%4],transform:'translate('+coord(point.x)+' '+coord(point.y)+') scale(.95)'});
+ mark.group.append(flower);mark.surface.spacing=0;
+}
 function flushInput(){
  const dirty=new Set();
  if(!geometry)geometry=clothElements.map(element=>{const rect=element.getBoundingClientRect();return {element,x:rect.left+element.clientLeft,y:rect.top+element.clientTop,width:element.clientWidth,height:element.clientHeight};});
  for(const item of pending.splice(0)){
-  for(const piece of clipImprintStroke(item.start,item.end,geometry)){
+  const pieces=clipImprintStroke(item.start,item.end,geometry);
+  if(!pieces.length&&Math.hypot(item.end.x-item.start.x,item.end.y-item.start.y)>=.01)seededBanner=null;
+  for(const piece of pieces){
    const parts=imprintSegments(piece.start,piece.end);if(!parts.length)continue;
    const mark=batchFor(surfaceFor(piece.element),item.born);
+   const banner=piece.element.closest('.banner');
+   if(item.stroke!==seededStroke||banner!==seededBanner){plantFlower(mark,piece.start);seededStroke=item.stroke;seededBanner=banner;}
    parts.forEach(part=>appendSegment(mark,part.start,part.end));dirty.add(mark);
   }
  }
@@ -127,6 +137,9 @@ document.addEventListener('pointermove',event=>{
  if(event.pointerType==='touch'||!allowed())return;
  if(event.target.closest?.('input,textarea,[contenteditable=true]')){resetStroke();pointerInside=false;clearGlitch();return;}
  pointerInside=true;scheduleGlitch();
+ const now=performance.now();
+ if(lastMovement&&now-lastMovement>650)resetStroke();
+ lastMovement=now;
  const samples=event.getCoalescedEvents?.()||[];
  // Preserve intermediate turns delivered in a single high-speed pointer event.
  for(const sample of samples.length?samples:[event]){
