@@ -8,18 +8,23 @@ html{scrollbar-gutter:stable}
 .pet canvas{display:block;width:64px;height:56px;image-rendering:pixelated;transform-origin:50% 100%}
 .pet-rope{position:absolute;inset:0;width:100%;overflow:visible;pointer-events:none}
 .pet-rope line{stroke:#ead19ca3;stroke-width:2;vector-effect:non-scaling-stroke}
-.open-project{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:none;width:38px;min-height:42px;background:#e6c783;color:#3f4836;border:2px solid #1e3437;box-shadow:inset 2px 2px #fff0bb,inset -2px -2px #a88b52,0 3px 0 #152c36;font:500 13px 'Pixelify Sans';transition:transform .15s,background .15s}
-.open-project .ui-icon{width:20px;height:20px;stroke-width:1.7}
-.project-caption{gap:9px}.project-caption>div{min-width:0}
+/* Raised brass menu keys: broad targets, inset emblems, and a short press travel. */
+.open-project,.detail-link{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:8px 20px;border:2px solid #243238;border-radius:0;background:#e7bd68;background-image:linear-gradient(#ffe3a0 0 48%,#eac471 48% 100%);color:#343b32;box-shadow:inset 2px 2px #fff2c5,inset -2px -3px #b1853f,0 5px 0 #75522e,0 7px 0 #172c35;font:600 20px/1 'Pixelify Sans',sans-serif;text-decoration:none;text-shadow:0 1px #fff0bc;transition:transform .16s cubic-bezier(.2,.8,.2,1)}
+.open-project{grid-column:1/-1;width:100%;margin-top:3px;margin-bottom:7px}
+.open-project::before,.detail-link::before{content:'';position:absolute;inset:5px;border:1px solid #9e763f77;pointer-events:none;background:linear-gradient(#fff1bd,#fff1bd) left top/3px 3px no-repeat,linear-gradient(#fff1bd,#fff1bd) right top/3px 3px no-repeat,linear-gradient(#9b7034,#9b7034) left bottom/3px 3px no-repeat,linear-gradient(#9b7034,#9b7034) right bottom/3px 3px no-repeat}
+.open-project::after,.detail-link::after{content:'';position:absolute;inset:0 auto 0 0;width:24px;background:#fff6d988;transform:translateX(-70px) skewX(-20deg);opacity:0;pointer-events:none;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .2s}
+.open-project .ui-icon,.detail-link .ui-icon{width:28px;height:28px;padding:4px;flex:none;color:#fff0b9;background:#365354;box-shadow:inset 1px 1px #192f35,0 1px #fff0b9;stroke-width:1.8;transition:transform .16s}
+.project-caption{display:grid;grid-template-columns:28px minmax(0,1fr);gap:9px 10px}.project-caption>div{min-width:0}
 .project-entry{cursor:pointer;transition:background-color .18s}
 .project-entry:hover,.project-entry:focus-visible{background-color:#c9e5d31a}
-.project-entry:hover .open-project,.project-entry:focus-visible .open-project{background:#ffdda0;transform:translateY(-2px)}
-.project-entry:active .open-project{transform:translateY(3px);box-shadow:inset 2px 2px #a88b52}
+.project-entry:is(:hover,:focus-visible) .open-project,.detail-link:is(:hover,:focus-visible){background-color:#f7d88a;background-image:linear-gradient(#fff0b9 0 48%,#f4d085 48% 100%);transform:translateY(-2px)}
+.project-entry:is(:hover,:focus-visible) .open-project::after,.detail-link:is(:hover,:focus-visible)::after{transform:translateX(360px) skewX(-20deg);opacity:.7}
+.project-entry:is(:hover,:focus-visible) .open-project .ui-icon,.detail-link:is(:hover,:focus-visible) .ui-icon{transform:rotate(-7deg)}
+.project-entry:focus-visible .open-project,.detail-link:focus-visible{outline:3px solid #fff6cf;outline-offset:4px}
+.project-entry:active .open-project,.detail-link:active{transform:translateY(4px);box-shadow:inset 2px 2px #b1853f,inset -2px -2px #fff0bb,0 1px 0 #75522e,0 3px 0 #172c35}
 .project-entry .project-art{box-shadow:0 3px 0 #16323e;transition:filter .18s}
 .project-entry:hover .project-art{filter:brightness(1.06)}
-.detail-link{padding:5px 9px 6px;margin-top:12px;background:#e8cc95;color:#533d2d;border:1px solid #392e27;box-shadow:0 3px 0 #442b25;text-decoration:none;font-weight:700}
-.detail-link:hover{background:#ffe3ab;transform:translateY(-1px)}
-.detail-link:active{transform:translateY(2px);box-shadow:none}
+.detail-link{width:100%;margin-top:16px;margin-bottom:7px;font-size:19px}.detail-link .ui-icon{order:-1}
 .group-item{padding:5px 0;transition:background .15s}.group-item:hover{background:#f9d29710}
 .group-item h3,.work-info strong{text-decoration:underline;text-decoration-color:#e4d1a56e;text-underline-offset:4px;text-decoration-thickness:1px}
 .group-item:hover h3,.work-entry:hover strong{text-decoration-color:currentColor}
@@ -68,6 +73,6 @@ body.tear-open> .site-shell{visibility:hidden}
 .closing-wipe-sheet{position:absolute;inset:0 -8%;display:grid;place-items:center;background:#172327;background-image:url('/assets/cloth-weave.svg');background-size:96px 96px;transform:translateX(-105%);clip-path:polygon(0 0,97% 0,97% 12%,99% 12%,99% 32%,100% 32%,100% 100%,3% 100%,3% 88%,1% 88%,1% 68%,0 68%)}
 .closing-wipe-sheet p{max-width:min(620px,78vw);padding:24px;text-align:center;font:500 clamp(26px,4vw,46px)/1.25 'Pixelify Sans',monospace;text-wrap:balance;text-shadow:2px 3px #0b141a}
 .closing-wipe-sheet p span{color:#d8bd7a;white-space:nowrap}
-@media(max-width:1050px) and (min-width:761px){.open-project{width:31px;min-height:37px;font-size:12px}.open-project .ui-icon{width:17px;height:17px}.project-caption{gap:6px}}
+@media(max-width:1050px) and (min-width:761px){.open-project,.detail-link{padding-inline:12px;gap:9px;font-size:18px}.project-caption{gap:9px 7px}}
 @media(max-width:600px){.tear-layout{grid-template-rows:66px minmax(0,1fr) 66px}.tear-close{font-size:23px;background-size:28px 28px}.tear-window.detail{padding:20px}.tear-content .detail-heading h1{font-size:32px}.tear-content .detail-art,.tear-content .detail-art img{max-height:200px}.pet{width:64px}.tear-close kbd{display:none}}
-@media(prefers-reduced-motion:reduce){.slash-fx,.tear-shard{display:none!important}.project-art,.open-project,.detail-link,.work-logo{transition:none!important}}
+@media(prefers-reduced-motion:reduce){.slash-fx,.tear-shard{display:none!important}.project-art,.open-project,.detail-link,.work-logo,.open-project .ui-icon,.detail-link .ui-icon{transition:none!important}.open-project::after,.detail-link::after{display:none}}
