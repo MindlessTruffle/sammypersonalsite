@@ -1,0 +1,11 @@
+/* Decorative depth only. Cloth, content, and pointer imprints never move. */
+.has-scene-depth::before{opacity:0}
+.scene-depth{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;contain:strict}
+.scene-depth[hidden]{display:none}
+.scene-backdrop{position:absolute;inset:-48px;background:url('/sammypersonalsite/assets/castle-courtyard-refined.png') center/cover no-repeat;image-rendering:pixelated;filter:blur(4px) saturate(.85)}
+.scene-ivy{position:absolute;inset:-12px -4px -64px;opacity:.21;background:url('/sammypersonalsite/assets/courtyard-ivy.svg') left top/76px 560px repeat-y,url('/sammypersonalsite/assets/courtyard-ivy.svg') right 210px/62px 457px repeat-y}
+.scene-dust{position:absolute;inset:0 0 -64px;opacity:.29}
+.scene-dust i{position:absolute;width:3px;height:3px;background:#fff3c5;box-shadow:0 0 5px #fff1bc80}
+.scene-dust i:nth-child(even){width:2px;height:2px;background:#d8ece1}
+@media(max-width:760px){.scene-backdrop{filter:blur(3px) saturate(.85)}.scene-ivy{opacity:.14;background-size:30px 370px,26px 320px}.scene-dust i:nth-child(even){display:none}}
+@media(prefers-reduced-motion:reduce){.scene-depth{display:none}.has-scene-depth::before{opacity:1}}
