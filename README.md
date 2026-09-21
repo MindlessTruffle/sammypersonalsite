@@ -71,3 +71,10 @@ The courtyard stays static. Twelve leaves drift down from above, while seven tin
 two-stroke birds cross behind the banners in 23–32 seconds, softened with blur. Phones show fewer sprites. CSS
 transforms handle motion without a JavaScript animation loop or scroll listener.
 Hidden tabs and dialogs pause the scenery; reduced motion hides it entirely.
+
+Personal identity assets use a gold pixel S on the same forest cloth weave as the banners.
+`npm run build:brand` regenerates the SVG logo, 16/32px PNG favicons, ICO, 180px touch
+icon, 512px square export, and 1200x630 social preview using Node built-ins only.
+Open Graph and Twitter card tags reference the public PNG so messaging and LinkedIn
+link previews can use the artwork after deployment. The square export is available
+at dist/assets/sammy-s-logo.png for manual profile/image use.
