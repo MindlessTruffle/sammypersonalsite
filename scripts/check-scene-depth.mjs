@@ -11,7 +11,7 @@ const window = {addEventListener:(name,fn)=>events.set(name,fn)};
 const source = await readFile(new URL('../dist/assets/scene-depth.js',import.meta.url),'utf8');
 vm.runInNewContext(source,{document,window,matchMedia:()=>reduced});
 const scene=scenes[0];
-assert.equal(scene.children.length,7,'Only four leaves and three birds are allocated');
+assert.equal(scene.children.length,19,'Twelve leaves and seven birds are allocated once');
 assert.equal(events.has('scroll'),false,'No scroll handler or parallax');
 assert.equal(scene.classList['is-paused'],false);
 for (const reason of ['overlay','hidden','pagehide','reduced']) {

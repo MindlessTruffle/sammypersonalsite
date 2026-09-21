@@ -4,10 +4,10 @@ const scene = document.createElement('div');
 scene.className = 'background-life';
 scene.setAttribute('aria-hidden', 'true');
 const svgNS = 'http://www.w3.org/2000/svg';
-function sprite(kind, top, duration, delay) {
+function sprite(kind, top, duration, delay, drift = 0) {
   const flight = document.createElement('div');
   flight.className = `background-flight ${kind}-flight`;
-  flight.style.cssText = `--altitude:${top}%;--duration:${duration}s;--delay:${delay}s`;
+  flight.style.cssText = `--altitude:${top}%;--duration:${duration}s;--delay:${delay}s;--drift:${drift}px`;
   const svg = document.createElementNS(svgNS, 'svg');
   svg.setAttribute('viewBox', kind === 'leaf' ? '0 0 18 12' : '0 0 24 12');
   if (kind === 'leaf') {
@@ -18,9 +18,13 @@ function sprite(kind, top, duration, delay) {
   flight.append(svg);
   scene.append(flight);
 }
-// Sparse, staggered flights. Negative delays prevent a synchronized entrance.
-[[25,39,-8],[52,47,-31],[78,43,-19],[38,51,-43]].forEach(([top,duration,delay])=>sprite('leaf',top,duration,delay));
-[[12,58,-21],[19,64,-44],[31,71,-5]].forEach(([top,duration,delay])=>sprite('bird',top,duration,delay));
+// Leaves enter above the viewport at varied horizontal positions. Staggered phases
+// keep the breeze populated without synchronized entrances or new allocations.
+[[2,32,-8],[10,39,-31],[19,35,-19],[28,43,-37],[37,30,-5],[46,38,-24],
+ [55,34,-15],[64,41,-34],[73,31,-11],[82,37,-28],[90,44,-20],[98,36,-3]]
+  .forEach(([x,duration,delay],i)=>sprite('leaf',x,duration,delay,(i%2?-1:1)*(45+i*7)));
+[[10,24,-9],[17,29,-20],[25,27,-3],[35,32,-18],[43,23,-15],[57,30,-7],[69,26,-22]]
+  .forEach(([top,duration,delay])=>sprite('bird',top,duration,delay));
 document.body.prepend(scene);
 let suspended = false;
 function sync() {

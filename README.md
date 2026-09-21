@@ -67,7 +67,7 @@ spaced about 52px apart; stems remain immediate and leaf/flower growth stays del
 Vines and leaves use 16% opacity; flowers use 22%. Speed-adaptive smoothing softens hand tremors, midpoint curves
 round the path, and a short eased tail settles to the pointer when it stops moving.
 
-The courtyard stays static. Four sparse blowing leaves and three tiny black two-stroke
-birds drift behind the banners, softened with blur. Phones show fewer sprites. CSS
+The courtyard stays static. Twelve leaves drift down from above, while seven tiny black
+two-stroke birds cross behind the banners in 23–32 seconds, softened with blur. Phones show fewer sprites. CSS
 transforms handle motion without a JavaScript animation loop or scroll listener.
 Hidden tabs and dialogs pause the scenery; reduced motion hides it entirely.
