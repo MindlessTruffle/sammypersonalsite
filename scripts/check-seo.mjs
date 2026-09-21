@@ -43,5 +43,9 @@ for(const output of ['dist','docs']){
  const html=await readFile(output+'/index.html','utf8');
  for(const [key,name] of [['google','google-site-verification'],['bing','msvalidate.01']])assert.equal(html.includes('name="'+name+'"'),Boolean(verification[key]));
 }
-const share=await readFile('docs/assets/sammy-s-social.png');assert.equal(share.readUInt32BE(16),1200);assert.equal(share.readUInt32BE(20),630);
+const share=await readFile('docs/assets/sammy-icon-emulator-social.png');
+const shareWidth=share.readUInt32BE(16),shareHeight=share.readUInt32BE(20);
+assert.ok(shareWidth>=1200&&shareWidth/shareHeight>1.8&&shareWidth/shareHeight<2,'Wide social preview dimensions');
+for(const page of pages){const html=await readFile('docs/'+page.path+'index.html','utf8');assert.ok(html.includes('property="og:image:width" content="'+shareWidth+'"'));assert.ok(html.includes('property="og:image:height" content="'+shareHeight+'"'));assert.ok(html.includes(absolute('assets/sammy-icon-emulator-social.png')));}
+assert.ok((await readFile('docs/assets/sammy-s-cute.svg','utf8')).includes('<svg'));
 console.log('SEO checks pass: unchanged page bodies, canonical/OG/schema alignment, Markdown copies, sitemap, crawler policy, error indexing, and share image.');

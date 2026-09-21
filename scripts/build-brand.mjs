@@ -3,7 +3,7 @@ import {deflateSync} from 'node:zlib';
 import {fileURLToPath} from 'node:url';
 const assets=fileURLToPath(new URL('../dist/assets/',import.meta.url));
 // One rectangular pixel drawing drives both SVG and PNG; no runtime dependencies.
-const glyph=['0111110','1100011','1100000','1100000','0111110','0000011','0000011','1100011','0111110'];
+const glyph=['0011100','0111110','1100000','1100000','0111110','0000011','0000011','0111110','0011100'];
 const rect=(ops,x,y,w,h,fill,opacity=1)=>ops.push({x,y,w,h,fill,opacity});
 function cloth(ops,w,h){
  rect(ops,0,0,w,h,'#315e82');
@@ -22,6 +22,14 @@ function logo(){
  for(const [x,y] of cells)rect(ops,x-1,y-1,7,7,'#172f46');
  for(const [x,y] of cells)rect(ops,x,y,5,5,'#ead28e');
  for(const [x,y,gx,gy] of cells)if(!gy||glyph[gy-1][gx]!=='1')rect(ops,x,y,5,1,'#fff1bf');
+ // A tiny face turns the monogram into a friendly pixel character.
+ rect(ops,22,27,20,9,'#ead28e');
+ rect(ops,25,28,4,4,'#20394b');rect(ops,36,28,4,4,'#20394b');
+ rect(ops,25,28,1,1,'#fff7d9');rect(ops,36,28,1,1,'#fff7d9');
+ rect(ops,21,32,4,2,'#dc9985');rect(ops,40,32,4,2,'#dc9985');
+ rect(ops,31,33,4,2,'#946846');
+ // Stepped corners and small stitched highlights keep the blue-cloth badge soft.
+ for(const [x,y] of [[0,0],[60,0],[0,60],[60,60]])rect(ops,x,y,4,4,'#102d46');
  return ops;
 }
 const mark=logo();
@@ -39,17 +47,10 @@ function png(ops,w,h,viewW=w,viewH=h){
 }
 await writeFile(assets+'sammy-s-logo.svg',svg(mark,64,64));
 await writeFile(assets+'favicon.svg',svg(mark,64,64));
-for(const [name,size] of [['sammy-s-logo.png',512],['sammy-s-favicon-32.png',32],['sammy-s-favicon-16.png',16],['apple-touch-icon.png',180]])await writeFile(assets+name,png(mark,size,size,64,64));
+await writeFile(assets+'sammy-s-cute.svg',svg(mark,64,64));
+for(const [name,size] of [['sammy-s-logo.png',512],['sammy-s-favicon-32.png',32],['sammy-s-favicon-16.png',16],['apple-touch-icon.png',180],['sammy-s-cute-32.png',32],['sammy-s-cute-touch.png',180]])await writeFile(assets+name,png(mark,size,size,64,64));
 const iconImages=[16,32,48].map(size=>({size,data:png(mark,size,size,64,64)}));
 const icoHeader=Buffer.alloc(6+16*iconImages.length);icoHeader.writeUInt16LE(1,2);icoHeader.writeUInt16LE(iconImages.length,4);let offset=icoHeader.length;
 iconImages.forEach(({size,data},i)=>{const p=6+i*16;icoHeader[p]=size;icoHeader[p+1]=size;icoHeader.writeUInt16LE(1,p+4);icoHeader.writeUInt16LE(24,p+6);icoHeader.writeUInt32LE(data.length,p+8);icoHeader.writeUInt32LE(offset,p+12);offset+=data.length;});
 await writeFile(new URL('../dist/favicon.ico',import.meta.url),Buffer.concat([icoHeader,...iconImages.map(i=>i.data)]));
-const letters={S:['01111','10000','10000','01110','00001','00001','11110'],A:['01110','10001','10001','11111','10001','10001','10001'],M:['10001','11011','10101','10101','10001','10001','10001'],Y:['10001','10001','01010','00100','00100','00100','00100'],H:['10001','10001','10001','11111','10001','10001','10001'],W:['10001','10001','10001','10101','10101','11011','10001'],R:['11110','10001','10001','11110','10100','10010','10001'],I:['111','010','010','010','010','010','111'],C:['01111','10000','10000','10000','10000','10000','01111'],O:['01110','10001','10001','10001','10001','10001','01110'],'.':['0','0','0','0','0','0','1'],' ':['000']};
-function label(ops,text,y,scale,color){const width=[...text].reduce((sum,ch)=>sum+(letters[ch][0].length+1)*scale,0)-scale;let x=(1200-width)/2;for(const ch of text){const glyph=letters[ch];glyph.forEach((row,gy)=>[...row].forEach((bit,gx)=>{if(bit==='1')rect(ops,x+gx*scale,y+gy*scale,scale,scale,color);}));x+=(glyph[0].length+1)*scale;}}
-const card=[];cloth(card,1200,630);
-for(const y of [32,596]){rect(card,32,y,1136,2,'#bea76c',.48);for(let x=44;x<1156;x+=16)rect(card,x,y+(y===32?7:-7),6,2,'#dac48b',.3);}
-for(const o of mark)card.push({...o,x:460+o.x*4.375,y:60+o.y*4.375,w:o.w*4.375,h:o.h*4.375});
-
-label(card,'SAMMY HAWARI',384,7,'#f4e5b8');label(card,'SAMMYHAWARI.COM',468,3,'#bed7e4');
-await writeFile(assets+'sammy-s-social.png',png(card,1200,630));
-console.log('Built pixel S logo, SVG/PNG/ICO favicons, touch icon, and 1200x630 share image.');
+console.log('Built friendly pixel S SVG/PNG/ICO favicons and touch icon. Share banner is a separately curated image asset.');

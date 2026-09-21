@@ -47,12 +47,12 @@ export function seoHead(route){
  const page=pages.find(p=>p.path===route),missing=!page;
  if(missing&&route!=='404.html')throw Error('Missing SEO manifest entry: '+route);
  const title=page?.title||'Page Not Found | Sammy Hawari',description=page?.description||'This page could not be found.';
- const image=absolute('assets/sammy-s-social.png'),alt='Gold pixel-art S on textured blue banner cloth — Sammy Hawari';
+ const image=absolute('assets/sammy-icon-emulator-social.png'),alt='Pixel-art meadow blended with Icon Emulator’s branching dice and clover workspace';
  const meta=(key,value,property=false)=>`<meta ${property?'property':'name'}="${key}" content="${escape(value)}">`;
  const tags=[`<title>${escape(title)}</title>`,meta('description',description),meta('author','Sammy Hawari'),meta('robots',missing?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1')];
  for(const [key,name] of [['google','google-site-verification'],['bing','msvalidate.01']])if(verification[key])tags.push(meta(name,verification[key]));
  if(page)tags.push(`<link rel="canonical" href="${absolute(route)}">`,`<link rel="alternate" type="text/markdown" href="${absolute(route+'index.md')}" title="Markdown version">`,`<link rel="describedby" type="text/plain" href="${absolute('llms.txt')}">`);
- for(const [key,value] of Object.entries({'og:title':title,'og:description':description,'og:site_name':'Sammy Hawari','og:type':page?.kind==='article'?'article':'website','og:url':absolute(route),'og:locale':'en_CA','og:image':image,'og:image:type':'image/png','og:image:width':'1200','og:image:height':'630','og:image:alt':alt}))tags.push(meta(key,value,true));
+ for(const [key,value] of Object.entries({'og:title':title,'og:description':description,'og:site_name':'Sammy Hawari','og:type':page?.kind==='article'?'article':'website','og:url':absolute(route),'og:locale':'en_CA','og:image':image,'og:image:type':'image/png','og:image:width':'1730','og:image:height':'909','og:image:alt':alt}))tags.push(meta(key,value,true));
  for(const [key,value] of Object.entries({'twitter:card':'summary_large_image','twitter:creator':'@mindlesstruffle','twitter:title':title,'twitter:description':description,'twitter:image':image,'twitter:image:alt':alt}))tags.push(meta(key,value));
  if(page)tags.push(`<script type="application/ld+json" id="site-schema">${JSON.stringify(pageSchema(page)).replace(/</g,'\\u003c')}</script>`);
  return tags.join('');

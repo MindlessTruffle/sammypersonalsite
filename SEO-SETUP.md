@@ -4,7 +4,7 @@ Implemented September 21, 2026. Site-side changes are prepared locally; publishi
 
 ## What is ready
 
-- The visible name no longer has a logo before it. Favicons and sharing artwork use gold pixel S on blue cloth.
+- The visible name no longer has a logo before it. Favicons use a friendly gold pixel S on blue cloth. Sharing artwork blends the Icon Emulator meadow and branching workspace capture.
 - All existing homepage and detail-page bodies remain unchanged apart from that requested logo removal. A saved body-hash baseline checks both local and public builds.
 - Each of eight public pages has a unique search title, description, HTTPS canonical URL, social metadata, and connected structured data. Person, WebSite, ProfilePage, CreativeWork, and Article entities describe existing content without invented dates, ratings, or claims.
 - Opening and closing project dialogs updates and restores metadata alongside the existing navigation.
