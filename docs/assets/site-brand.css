@@ -1,4 +1,0 @@
-/* Personal mark uses the same cloth and pixel grid as the portfolio banners. */
-.name{position:relative;display:block;padding-left:46px}
-.site-mark{position:absolute;left:0;top:50%;transform:translateY(-50%);width:36px;height:36px;image-rendering:pixelated}
-@media(max-width:760px){.name{padding-left:39px}.site-mark{width:30px;height:30px}}

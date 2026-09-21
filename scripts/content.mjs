@@ -1,0 +1,33 @@
+export const projects = [
+  {slug:'number-company',title:'the number company',short:'one global sequence. one number per shirt.',type:'interactive commerce · prototype',mark:'',art:'number-pixel.webp',alt:'Pixel-art white shirt on a clothesline in a meadow',theme:'shirt',
+   intro:'I sell regular t-shirts, but each time one is sold the number on the next shirt goes up!',
+   sections:[['the experience','An interactive 3D shirt sits at the center of a minimal storefront. The garment rotates to show both sides. A live purchase feed, numbered artwork, and a sold-to-reveal transition make the next shirt part of the experience.'],['behind the storefront','The project includes a shared garment renderer, an admin preview, artwork management, and an isolated sales simulator. The Docker backend supports persistent storage and private S3 artwork. Payments are currently in test mode.']],
+   link:'https://github.com/MindlessTruffle/thenumbercompany-site',label:'source on github',stack:'React · Three.js · TypeScript · Docker'},
+  {slug:'neodev',title:'neo developer league',short:'an explorable world for a hackathon.',type:'web design & development · prototype',mark:'n',art:'neodev.webp',theme:'neo',
+   intro:'A series of interactive web experiences for Neo Developer League, exploring how a hackathon website can feel like a place you move through.',
+   sections:[['a world, not a poster','The synthwave version turns scrolling into a night drive through a city tunnel, coastal road, arcade, and builder pit. Cars drift, lights respond, and pixel-art characters give each district its own personality.'],['built for different screens','The project includes responsive mobile compositions, deep links, interactive arcade controls, and a reduced-motion version. Other explorations include a pixel-art map and a landscape inspired by open-world games.']],
+   stack:'React · TypeScript · CSS animation · interactive worlds'},
+  {slug:'icon-emulator',title:'icon emulator',short:'make icons and artwork for your game.',type:'creative tooling · local application',mark:'',art:'icon-pixel.webp',alt:'Pixel-art game assets on a drawing table beside a field',theme:'icon',
+   intro:'A local workspace for generating game UI icons, emblems, and interface assets, with a library that keeps the useful results organized.',
+   sections:[['from prompt to library','The app brings prompting, feedback, style references, branching, and batch work into one place. Generated images can be collected, compared, exported, and refined without losing the original.'],['keeping work recoverable','Persistent drafts, shared queue controls, feedback history, recoverable branches, and non-destructive cleanup help make longer creative sessions manageable. The application uses the locally authenticated Codex CLI.']],
+   link:'https://github.com/MindlessTruffle/icon-emulator',label:'source on github',stack:'TypeScript · local workflows · image generation'},
+  {slug:'larpmegle',title:'larpmegle',short:'two people debate. a third picks the winner.',type:'multiplayer web game · prototype',art:'larp-pixel.webp',alt:'Three pixel-art participants in an outdoor debate',mark:'l',theme:'larp',
+   intro:'A three-person video game about convincing someone you know more than the other person. Two players argue their case; a judge decides the winner.',
+   sections:[['100 seconds','Players choose a category and join as a judge or a larper. Each larper gets two 20-second turns. The judge gets the final 20 seconds to explain their pick. Categories include music, gaming, science, movies, and television.'],['making the match work','The prototype includes public queues, private room codes, WebRTC camera connections, timed microphone turns, and ranked results. The active speaker gets the main camera tile, with layouts for desktop and phones. ']],
+   stack:'Next.js · TypeScript · WebRTC · PostgreSQL'},
+  {slug:'backflip',title:'backflip off a cliff',short:'cliff diving, tricks, and a little chaos.',type:'game design & development · in progress',mark:'',theme:'backflip',
+   intro:'A cliff-diving game project built around the thrill of jumping from taller places, learning tricks, and finding your own style.',
+   sections:[['the loop','Cliffs spiral around a shared body of water. Players progress toward higher jumps, unlock ladders, and improve control, tricks, and dive speed. Other players remain visible across the map.'],['style and progression','Unlockable flairs combine animations and effects so each jump can look different. The project explores progression, upgrades, rewards, and the balance between spectacle and control.']],
+   stack:'Roblox · Luau · game systems · progression'}
+];
+export const featuredProjects = ['number-company','icon-emulator','larpmegle'].map(slug=>projects.find(p=>p.slug===slug));
+export const groups = [
+ {name:'inspect-element',url:'https://www.roblox.com/communities/33788987/Inspect-Element#!/about',art:'inspect-element.png',stat:'1.8M',description:'total play sessions'},
+ {name:'slopify live',url:'https://www.roblox.com/communities/240726509/SLOPIFY-LIVE#!/about',art:'slopify-live.png',stat:'top 10,000',prefix:'broke into Roblox’s ',description:'experiences'}
+];
+export const notes=[
+ {slug:'one-shirt-one-number',title:'one shirt, one number',date:'sep 2026',body:[['the idea','The Number Company starts with a simple rule: every shirt receives the next number in one continuous sequence. Numbers do not restart with a collection.'],['the interface','The storefront shows an estimated next number. That estimate and the final assigned number serve different purposes: one keeps the live experience responsive, while the permanent number must come from the server.'],['the artwork','An artist design can belong to one specific shirt or a range of numbers. The same garment renderer supports the storefront, admin preview, and simulator.']],project:'number-company'},
+ {slug:'a-hundred-seconds',title:'a hundred seconds',date:'jun 2026',body:[['the format','Larpmegle puts three people in a room: two larpers and one judge. The challenge is to convince the judge you know more about a shared topic.'],['the rhythm','Twenty seconds for player one, twenty for player two, then one more turn each. The final twenty seconds belong to the judge. The entire round lasts 100 seconds.'],['the screen','The active speaker gets the largest camera tile. The other two participants stay visible, and the judge has a notepad for keeping track of the arguments.']],project:'larpmegle'}
+];
+
+export const social=[['github','https://github.com/MindlessTruffle'],['linkedin','https://www.linkedin.com/in/sammyhawari/'],['x / twitter','https://x.com/mindlesstruffle']];

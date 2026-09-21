@@ -1,9 +1,11 @@
+import {capturePageMetadata,applyPageMetadata} from './page-metadata.js';
 import {tearDestination} from './tear-routes.js';
 import {tearTiming as timing} from './tear-timing.js';
 import {katanaMarkup,shardClip} from './katana-vfx.js';
 
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const baseTitle=document.title,baseURL=location.href;
+const baseMetadata=capturePageMetadata();
 const siteRoot=document.querySelector('meta[name="site-root"]')?.content||'/';
 const cache=new Map();
 let portal,content,opener,scroll=0,controller=null,revision=0,closing=false,current=null;
@@ -109,7 +111,7 @@ async function page(url,signal){
  const parsed=new DOMParser().parseFromString(await response.text(),'text/html');
  const article=parsed.querySelector('main.detail article');if(!article)throw Error('Project not found');
  article.querySelectorAll('script').forEach(n=>n.remove());
- const result={html:article.outerHTML,title:parsed.title};cache.set(url,result);return result;
+ const result={html:article.outerHTML,title:parsed.title,metadata:capturePageMetadata(parsed)};cache.set(url,result);return result;
 }
 async function openPage(url,trigger,push=true){
  cancelClosingWipe();
@@ -123,7 +125,7 @@ async function openPage(url,trigger,push=true){
  portal.querySelector('.tear-close-top').focus({preventScroll:true});
  try{
   const result=await page(url,controller.signal);if(id!==revision||!portal.open)return;
-  content.innerHTML=result.html;document.title=result.title;portal.setAttribute('aria-label',content.querySelector('h1')?.textContent||'Project page');
+  content.innerHTML=result.html;document.title=result.title;applyPageMetadata(result.metadata);portal.setAttribute('aria-label',content.querySelector('h1')?.textContent||'Project page');
  }catch(error){
   if(error.name==='AbortError'||id!==revision)return;
   content.replaceChildren();const p=document.createElement('p');p.className='tear-loading';p.setAttribute('role','alert');p.textContent='This page could not be opened here.';
@@ -136,7 +138,7 @@ function requestClose(){
 }
 function restoreBase(){
  portal.close();document.body.classList.remove('tear-open');document.dispatchEvent(new Event('portfolio:overlay'));
- document.title=baseTitle;current=null;window.scrollTo(0,scroll);content.replaceChildren();
+ document.title=baseTitle;applyPageMetadata(baseMetadata);current=null;window.scrollTo(0,scroll);content.replaceChildren();
 }
 function restoreFocus(){
  const returnFocus=opener?.isConnected&&opener.getClientRects().length?opener:document.querySelector('.command-trigger,.name');

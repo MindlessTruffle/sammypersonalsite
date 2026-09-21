@@ -10,7 +10,7 @@ function harness(){
  const portal={open:true,close(){this.open=false;},querySelector(s){return s==='.tear-window'?pane:fx;},querySelectorAll(){return [];}};
  const wipe={open:false,setAttribute(){},addEventListener(){},showModal(){this.open=true;},close(){this.open=false;},focus(){},querySelector(){return {animate(frames,options){let resolve,reject;const finished=new Promise((a,b)=>{resolve=a;reject=b;});const animation={finished,resolve,cancel(){reject(new Error('Cancelled'));},options,frames};animations.push(animation);return animation;}};}};
  const document={title:'Portfolio',body:{classList:{remove(){}},append(){}},createElement(){return wipe;},dispatchEvent(){},addEventListener(){},querySelector(){return {focus(){focus++;}};}};
- const context=vm.createContext({document,location:{href:'http://localhost/'},matchMedia:()=>({matches:false,addEventListener(){}}),addEventListener(){},Event,clearTimeout,setTimeout,window:{scrollTo(){}},testPortal:portal});
+ const context=vm.createContext({capturePageMetadata:()=>[],applyPageMetadata(){},document,location:{href:'http://localhost/'},matchMedia:()=>({matches:false,addEventListener(){}}),addEventListener(){},Event,clearTimeout,setTimeout,window:{scrollTo(){}},testPortal:portal});
  vm.runInContext(source+`\nportal=testPortal;content={replaceChildren(){}};globalThis.api={finishClose,cancelClosingWipe,setReduced(){reduced.matches=true;}};`,context);
  return {api:context.api,portal,wipe,animations,focused:()=>focus};
 }

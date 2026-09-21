@@ -6,20 +6,20 @@ const assets=fileURLToPath(new URL('../dist/assets/',import.meta.url));
 const glyph=['0111110','1100011','1100000','1100000','0111110','0000011','0000011','1100011','0111110'];
 const rect=(ops,x,y,w,h,fill,opacity=1)=>ops.push({x,y,w,h,fill,opacity});
 function cloth(ops,w,h){
- rect(ops,0,0,w,h,'#315441');
- for(const [x,width,fill,a] of [[0,.13,'#102d22',.3],[.14,.17,'#eddfb3',.045],[.4,.14,'#122e24',.12],[.67,.1,'#eddfb3',.035],[.87,.13,'#102d22',.24]])rect(ops,x*w,0,width*w,h,fill,a);
+ rect(ops,0,0,w,h,'#315e82');
+ for(const [x,width,fill,a] of [[0,.13,'#102d46',.3],[.14,.17,'#eddfb3',.045],[.4,.14,'#17324c',.12],[.67,.1,'#eddfb3',.035],[.87,.13,'#102d46',.24]])rect(ops,x*w,0,width*w,h,fill,a);
  for(let x=0;x<w;x+=8){rect(ops,x,0,2,h,'#ffeac6',.035);rect(ops,x+4,0,1,h,'#ffeac6',.035);}
  for(let y=2;y<h;y+=4)rect(ops,0,y,w,1,'#132127',.08);
  for(let y=12;y<h;y+=96)for(let x=13;x<w;x+=96)rect(ops,x,y,2,7,'#ffedc5',.055);
 }
 function logo(){
  const ops=[];cloth(ops,64,64);
- rect(ops,0,0,64,3,'#142f25');rect(ops,0,61,64,3,'#142f25');rect(ops,0,0,3,64,'#142f25');rect(ops,61,0,3,64,'#142f25');
+ rect(ops,0,0,64,3,'#132d45');rect(ops,0,61,64,3,'#132d45');rect(ops,0,0,3,64,'#132d45');rect(ops,61,0,3,64,'#132d45');
  rect(ops,4,4,56,1,'#d6ba72',.65);rect(ops,4,59,56,1,'#d6ba72',.4);rect(ops,4,4,1,56,'#d6ba72',.5);rect(ops,59,4,1,56,'#d6ba72',.4);
  for(let x=8;x<58;x+=6){rect(ops,x,7,2,1,'#e8d096',.38);rect(ops,x,56,2,1,'#e8d096',.3);}
  const cells=[];glyph.forEach((row,y)=>[...row].forEach((on,x)=>{if(on==='1')cells.push([14+x*5,9+y*5,x,y]);}));
- for(const [x,y] of cells)rect(ops,x+2,y+3,5,5,'#152c24');
- for(const [x,y] of cells)rect(ops,x-1,y-1,7,7,'#182e26');
+ for(const [x,y] of cells)rect(ops,x+2,y+3,5,5,'#142b40');
+ for(const [x,y] of cells)rect(ops,x-1,y-1,7,7,'#172f46');
  for(const [x,y] of cells)rect(ops,x,y,5,5,'#ead28e');
  for(const [x,y,gx,gy] of cells)if(!gy||glyph[gy-1][gx]!=='1')rect(ops,x,y,5,1,'#fff1bf');
  return ops;
@@ -50,6 +50,6 @@ const card=[];cloth(card,1200,630);
 for(const y of [32,596]){rect(card,32,y,1136,2,'#bea76c',.48);for(let x=44;x<1156;x+=16)rect(card,x,y+(y===32?7:-7),6,2,'#dac48b',.3);}
 for(const o of mark)card.push({...o,x:460+o.x*4.375,y:60+o.y*4.375,w:o.w*4.375,h:o.h*4.375});
 
-label(card,'SAMMY HAWARI',384,7,'#f4e5b8');label(card,'SAMMYHAWARI.COM',468,3,'#c0cca9');
+label(card,'SAMMY HAWARI',384,7,'#f4e5b8');label(card,'SAMMYHAWARI.COM',468,3,'#bed7e4');
 await writeFile(assets+'sammy-s-social.png',png(card,1200,630));
 console.log('Built pixel S logo, SVG/PNG/ICO favicons, touch icon, and 1200x630 share image.');

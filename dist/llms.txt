@@ -1,0 +1,29 @@
+# Sammy Hawari
+
+> Sammy Hawari (mindlesstruffle) is a software developer in Waterloo, Ontario, building websites, creative tools, and games. Explore his projects and experience.
+
+Official portfolio: https://sammyhawari.com/
+
+Project availability varies: the Number Company and Larpmegle pages describe prototypes; Icon Emulator describes a local application. The linked pages contain the project details.
+
+## Profile
+
+- [Sammy Hawari](https://sammyhawari.com/index.md): Background and links to public profiles.
+
+## Projects
+
+- [The Number Company](https://sammyhawari.com/number-company/index.md): I sell regular t-shirts, but each time one is sold the number on the next shirt goes up!
+- [Neo Developer League](https://sammyhawari.com/neodev/index.md): A series of interactive web experiences for Neo Developer League, exploring how a hackathon website can feel like a place you move through.
+- [Icon Emulator](https://sammyhawari.com/icon-emulator/index.md): A local workspace for generating game UI icons, emblems, and interface assets, with a library that keeps the useful results organized.
+- [Larpmegle](https://sammyhawari.com/larpmegle/index.md): A three-person video game about convincing someone you know more than the other person. Two players argue their case; a judge decides the winner.
+- [Backflip Off a Cliff](https://sammyhawari.com/backflip/index.md): A cliff-diving game project built around the thrill of jumping from taller places, learning tricks, and finding your own style.
+
+## Project notes
+
+- [one shirt, one number](https://sammyhawari.com/notes/one-shirt-one-number/index.md): The Number Company starts with a simple rule: every shirt receives the next number in one continuous sequence. Numbers do not restart with a collection.
+- [a hundred seconds](https://sammyhawari.com/notes/a-hundred-seconds/index.md): Larpmegle puts three people in a room: two larpers and one judge. The challenge is to convince the judge you know more about a shared topic.
+
+## Optional
+
+- [Combined project text](https://sammyhawari.com/llms-full.txt): The same public summaries and notes in one file.
+- [XML sitemap](https://sammyhawari.com/sitemap.xml): Canonical HTML pages.

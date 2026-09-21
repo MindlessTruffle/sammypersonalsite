@@ -1,5 +1,5 @@
 /* Soft scenery, crisp foreground pixels. */
-body::before{inset:-12px;filter:blur(4px) saturate(.85);background-image:url('/assets/castle-courtyard-refined.png')}
+body::before{inset:-12px;filter:blur(4px) saturate(.85);background-image:url('/assets/castle-courtyard-refined.webp')}
 .site-shell{position:relative}
 .recent-subnote{display:block;font-size:13px;line-height:1.5;margin-top:5px;color:#cfdfba}
 .recent-brand img[src$="neo-league-logo.png"]{width:19px;height:19px;vertical-align:-5px}

@@ -1,0 +1,8 @@
+# Public portfolio pages and assets are available to search crawlers.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://sammyhawari.com/sitemap.xml

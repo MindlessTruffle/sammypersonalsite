@@ -1,0 +1,185 @@
+# Sammy Hawari
+
+Source: https://sammyhawari.com/
+
+By Sammy Hawari.
+
+Sammy Hawari (mindlesstruffle) is a software developer in Waterloo, Ontario, building websites, creative tools, and games. Explore his projects and experience.
+
+Sammy attends Laurel Heights Secondary School in Waterloo, Ontario. His portfolio lists a Data Science Intern role at Yupp and Founder & Lead Developer roles at Inspect Element and SLOPIFY LIVE.
+
+## Projects
+
+- [The Number Company](https://sammyhawari.com/number-company/): I sell regular t-shirts, but each time one is sold the number on the next shirt goes up!
+- [Neo Developer League](https://sammyhawari.com/neodev/): A series of interactive web experiences for Neo Developer League, exploring how a hackathon website can feel like a place you move through.
+- [Icon Emulator](https://sammyhawari.com/icon-emulator/): A local workspace for generating game UI icons, emblems, and interface assets, with a library that keeps the useful results organized.
+- [Larpmegle](https://sammyhawari.com/larpmegle/): A three-person video game about convincing someone you know more than the other person. Two players argue their case; a judge decides the winner.
+- [Backflip Off a Cliff](https://sammyhawari.com/backflip/): A cliff-diving game project built around the thrill of jumping from taller places, learning tricks, and finding your own style.
+
+## Project notes
+
+- [one shirt, one number](https://sammyhawari.com/notes/one-shirt-one-number/)
+- [a hundred seconds](https://sammyhawari.com/notes/a-hundred-seconds/)
+
+## Public profiles
+
+- [github](https://github.com/MindlessTruffle)
+- [linkedin](https://www.linkedin.com/in/sammyhawari/)
+- [x / twitter](https://x.com/mindlesstruffle)
+
+---
+
+# The Number Company
+
+Source: https://sammyhawari.com/number-company/
+
+By Sammy Hawari.
+
+I sell regular t-shirts, but each time one is sold the number on the next shirt goes up!
+
+Status / focus: interactive commerce · prototype
+Tools: React · Three.js · TypeScript · Docker
+
+## the experience
+
+An interactive 3D shirt sits at the center of a minimal storefront. The garment rotates to show both sides. A live purchase feed, numbered artwork, and a sold-to-reveal transition make the next shirt part of the experience.
+
+## behind the storefront
+
+The project includes a shared garment renderer, an admin preview, artwork management, and an isolated sales simulator. The Docker backend supports persistent storage and private S3 artwork. Payments are currently in test mode.
+
+[source on github](https://github.com/MindlessTruffle/thenumbercompany-site)
+
+---
+
+# Neo Developer League
+
+Source: https://sammyhawari.com/neodev/
+
+By Sammy Hawari.
+
+A series of interactive web experiences for Neo Developer League, exploring how a hackathon website can feel like a place you move through.
+
+Status / focus: web design & development · prototype
+Tools: React · TypeScript · CSS animation · interactive worlds
+
+## a world, not a poster
+
+The synthwave version turns scrolling into a night drive through a city tunnel, coastal road, arcade, and builder pit. Cars drift, lights respond, and pixel-art characters give each district its own personality.
+
+## built for different screens
+
+The project includes responsive mobile compositions, deep links, interactive arcade controls, and a reduced-motion version. Other explorations include a pixel-art map and a landscape inspired by open-world games.
+
+---
+
+# Icon Emulator
+
+Source: https://sammyhawari.com/icon-emulator/
+
+By Sammy Hawari.
+
+A local workspace for generating game UI icons, emblems, and interface assets, with a library that keeps the useful results organized.
+
+Status / focus: creative tooling · local application
+Tools: TypeScript · local workflows · image generation
+
+## from prompt to library
+
+The app brings prompting, feedback, style references, branching, and batch work into one place. Generated images can be collected, compared, exported, and refined without losing the original.
+
+## keeping work recoverable
+
+Persistent drafts, shared queue controls, feedback history, recoverable branches, and non-destructive cleanup help make longer creative sessions manageable. The application uses the locally authenticated Codex CLI.
+
+[source on github](https://github.com/MindlessTruffle/icon-emulator)
+
+---
+
+# Larpmegle
+
+Source: https://sammyhawari.com/larpmegle/
+
+By Sammy Hawari.
+
+A three-person video game about convincing someone you know more than the other person. Two players argue their case; a judge decides the winner.
+
+Status / focus: multiplayer web game · prototype
+Tools: Next.js · TypeScript · WebRTC · PostgreSQL
+
+## 100 seconds
+
+Players choose a category and join as a judge or a larper. Each larper gets two 20-second turns. The judge gets the final 20 seconds to explain their pick. Categories include music, gaming, science, movies, and television.
+
+## making the match work
+
+The prototype includes public queues, private room codes, WebRTC camera connections, timed microphone turns, and ranked results. The active speaker gets the main camera tile, with layouts for desktop and phones.
+
+---
+
+# Backflip Off a Cliff
+
+Source: https://sammyhawari.com/backflip/
+
+By Sammy Hawari.
+
+A cliff-diving game project built around the thrill of jumping from taller places, learning tricks, and finding your own style.
+
+Status / focus: game design & development · in progress
+Tools: Roblox · Luau · game systems · progression
+
+## the loop
+
+Cliffs spiral around a shared body of water. Players progress toward higher jumps, unlock ladders, and improve control, tricks, and dive speed. Other players remain visible across the map.
+
+## style and progression
+
+Unlockable flairs combine animations and effects so each jump can look different. The project explores progression, upgrades, rewards, and the balance between spectacle and control.
+
+---
+
+# one shirt, one number
+
+Source: https://sammyhawari.com/notes/one-shirt-one-number/
+
+By Sammy Hawari.
+
+Note label: sep 2026
+
+## the idea
+
+The Number Company starts with a simple rule: every shirt receives the next number in one continuous sequence. Numbers do not restart with a collection.
+
+## the interface
+
+The storefront shows an estimated next number. That estimate and the final assigned number serve different purposes: one keeps the live experience responsive, while the permanent number must come from the server.
+
+## the artwork
+
+An artist design can belong to one specific shirt or a range of numbers. The same garment renderer supports the storefront, admin preview, and simulator.
+
+[Related project](https://sammyhawari.com/number-company/)
+
+---
+
+# a hundred seconds
+
+Source: https://sammyhawari.com/notes/a-hundred-seconds/
+
+By Sammy Hawari.
+
+Note label: jun 2026
+
+## the format
+
+Larpmegle puts three people in a room: two larpers and one judge. The challenge is to convince the judge you know more about a shared topic.
+
+## the rhythm
+
+Twenty seconds for player one, twenty for player two, then one more turn each. The final twenty seconds belong to the judge. The entire round lasts 100 seconds.
+
+## the screen
+
+The active speaker gets the largest camera tile. The other two participants stay visible, and the judge has a notepad for keeping track of the arguments.
+
+[Related project](https://sammyhawari.com/larpmegle/)

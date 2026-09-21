@@ -6,8 +6,10 @@
     "build": "node scripts/build.mjs",
     "build:brand": "node scripts/build-brand.mjs",
     "dev": "node scripts/serve.mjs",
-    "check": "node scripts/check.mjs && node scripts/check-motion.mjs && node scripts/check-tear.mjs && node scripts/check-social-motion.mjs && node scripts/check-close-wipe.mjs && node scripts/check-performance.mjs && node scripts/check-scene-depth.mjs && node scripts/check-rainbow-cursor.mjs",
+    "check": "node scripts/check.mjs && node scripts/check-motion.mjs && node scripts/check-tear.mjs && node scripts/check-social-motion.mjs && node scripts/check-close-wipe.mjs && node scripts/check-performance.mjs && node scripts/check-scene-depth.mjs && node scripts/check-rainbow-cursor.mjs && node scripts/check-page-metadata.mjs && node scripts/check-seo.mjs",
     "build:pages": "node scripts/build-pages.mjs",
-    "check:pages": "node scripts/check-pages.mjs"
+    "check:pages": "node scripts/check-pages.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
+    "seo:indexnow": "node scripts/submit-indexnow.mjs"
   }
 }
