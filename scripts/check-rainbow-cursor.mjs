@@ -17,14 +17,14 @@ const link = {isConnected:true,disabled:false,style:{setProperty:(k,v)=>properti
 const move = target => events.get('pointermove')({target,pointerType:'mouse'});
 assert.equal(intervals.size,0,'No cursor work before clickable hover');
 move(link);assert.equal(intervals.size,1);assert.equal(imageCount,36);
-assert.equal(frameInterval,30,'Fast cycle uses cached frames at a bounded 33fps');
+assert.equal(frameInterval,37.5,'Cycle runs at 80% of the previous speed');
 const first=properties.get('--cursor-link');
 intervals.values().next().value();
 assert.notEqual(properties.get('--cursor-link'),first,'Rainbow fill animates even while pointer rests');
 const svg=decodeURIComponent(first.slice(first.indexOf(',')+1,-2));
 assert.match(svg,/stroke="#29323b" stroke-width="3.2"/,'Dark outline stays unchanged');
 assert.equal((svg.match(/<stop /g)||[]).length,6,'Six saturated bands fill the cursor');
-assert.ok(svg.includes(',100%,55%)'),'Vivid colors rather than pastels');
+assert.ok(svg.includes(',90%,55%)'),'Vivid colors rather than pastels');
 assert.match(svg,/width="26" height="28"/,'Cursor keeps its dimensions');
 move(link);assert.equal(intervals.size,1,'Nested hover never duplicates timer');
 move(null);assert.equal(intervals.size,0);assert.equal(properties.size,0);
