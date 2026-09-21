@@ -67,9 +67,7 @@ spaced about 52px apart; stems remain immediate and leaf/flower growth stays del
 Vines and leaves use 16% opacity; flowers use 22%. Speed-adaptive smoothing softens hand tremors, midpoint curves
 round the path, and a short eased tail settles to the pointer when it stops moving.
 
-The courtyard has subtle idle and scroll parallax, with faint pixel ivy at the screen
-edges and six small drifting motes. Only three decorative layers transform; cloth,
-text, buttons, and cursor imprints remain fixed. Movement is bounded, runs at 30fps,
-and is reduced on phones. Hidden tabs and dialogs pause it; reduced motion restores
-the original static background. To remove the experiment, set `ENABLED = false` in
-`dist/assets/scene-depth.js`, then run `npm run build:pages`.
+The courtyard stays static. Four sparse blowing leaves and three tiny black two-stroke
+birds drift behind the banners, softened with blur. Phones show fewer sprites. CSS
+transforms handle motion without a JavaScript animation loop or scroll listener.
+Hidden tabs and dialogs pause the scenery; reduced motion hides it entirely.

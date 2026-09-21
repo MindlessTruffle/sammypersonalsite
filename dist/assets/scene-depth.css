@@ -1,11 +1,21 @@
-/* Decorative depth only. Cloth, content, and pointer imprints never move. */
-.has-scene-depth::before{opacity:0}
-.scene-depth{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;contain:strict}
-.scene-depth[hidden]{display:none}
-.scene-backdrop{position:absolute;inset:-48px;background:url('/assets/castle-courtyard-refined.png') center/cover no-repeat;image-rendering:pixelated;filter:blur(4px) saturate(.85)}
-.scene-ivy{position:absolute;inset:-12px -4px -64px;opacity:.21;background:url('/assets/courtyard-ivy.svg') left top/76px 560px repeat-y,url('/assets/courtyard-ivy.svg') right 210px/62px 457px repeat-y}
-.scene-dust{position:absolute;inset:0 0 -64px;opacity:.29}
-.scene-dust i{position:absolute;width:3px;height:3px;background:#fff3c5;box-shadow:0 0 5px #fff1bc80}
-.scene-dust i:nth-child(even){width:2px;height:2px;background:#d8ece1}
-@media(max-width:760px){.scene-backdrop{filter:blur(3px) saturate(.85)}.scene-ivy{opacity:.14;background-size:30px 370px,26px 320px}.scene-dust i:nth-child(even){display:none}}
-@media(prefers-reduced-motion:reduce){.scene-depth{display:none}.has-scene-depth::before{opacity:1}}
+/* Fixed, blurred scenery behind the banners. No background drift or scroll effects. */
+.background-life{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;contain:strict}
+.background-life[hidden]{display:none}
+.background-flight{position:absolute;left:-28px;top:var(--altitude);width:20px;height:14px;animation:background-crossing var(--duration) var(--delay) linear infinite}
+.background-flight svg{display:block;width:100%;height:100%;overflow:visible}
+.leaf-flight{opacity:.32;filter:blur(1.2px)}
+.leaf-flight svg{animation:leaf-tumble 7s var(--delay) ease-in-out infinite}
+.leaf-shape{fill:#727b39}.leaf-vein{fill:none;stroke:#424e2f;stroke-width:1}
+.leaf-flight:nth-child(even) .leaf-shape{fill:#a2884a}
+.bird-flight{width:17px;height:10px;opacity:.36;filter:blur(.85px)}
+.bird-flight svg{animation:bird-soar 8s var(--delay) ease-in-out infinite}
+.bird-wing{fill:none;stroke:#111;stroke-width:1.8;stroke-linecap:round;transform-origin:12px 8px;animation:bird-wingbeat 2.6s var(--delay) ease-in-out infinite}
+.wing-right{animation-name:bird-wingbeat-right}
+.background-life.is-paused *{animation-play-state:paused!important}
+@keyframes background-crossing{0%{transform:translate3d(-12px,0,0)}25%{transform:translate3d(calc(25vw + 14px),12px,0)}50%{transform:translate3d(calc(50vw + 28px),-7px,0)}75%{transform:translate3d(calc(75vw + 42px),9px,0)}100%{transform:translate3d(calc(100vw + 56px),0,0)}}
+@keyframes leaf-tumble{0%,100%{transform:translateY(-5px) rotate(-24deg) scaleX(.7)}50%{transform:translateY(7px) rotate(38deg) scaleX(1)}}
+@keyframes bird-soar{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-9px) rotate(5deg)}}
+@keyframes bird-wingbeat-right{0%,100%{transform:rotate(9deg)}50%{transform:rotate(-9deg)}}
+@keyframes bird-wingbeat{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
+@media(max-width:760px){.leaf-flight:nth-child(even),.bird-flight:last-child{display:none}.leaf-flight{opacity:.26}.bird-flight{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.background-life{display:none}.background-life *{animation:none}}
