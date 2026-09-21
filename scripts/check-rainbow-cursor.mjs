@@ -1,0 +1,37 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import vm from 'node:vm';
+const events = new Map(), intervals = new Map();
+let id = 0, imageCount = 0;
+const fine = {matches:true,addEventListener(_,fn){this.change=fn;}};
+const reduced = {matches:false,addEventListener(_,fn){this.change=fn;}};
+const listen = (name, fn) => events.set(name, fn);
+const document = {hidden:false,addEventListener:listen};
+const window = {addEventListener:listen};
+const source = await readFile(new URL('../dist/assets/rainbow-cursor.js',import.meta.url),'utf8');
+vm.runInNewContext(source,{document,window,matchMedia:q=>q.includes('reduced')?reduced:fine,
+  Image:class{constructor(){imageCount++;}},setInterval:fn=>{intervals.set(++id,fn);return id;},clearInterval:id=>intervals.delete(id)});
+const properties = new Map();
+const link = {isConnected:true,disabled:false,style:{setProperty:(k,v)=>properties.set(k,v),removeProperty:k=>properties.delete(k)},
+  closest(selector){return selector.includes('[inert]')?(this.disabled?this:null):this;}};
+const move = target => events.get('pointermove')({target,pointerType:'mouse'});
+assert.equal(intervals.size,0,'No cursor work before clickable hover');
+move(link);assert.equal(intervals.size,1);assert.equal(imageCount,36);
+const first=properties.get('--cursor-link');
+intervals.values().next().value();
+assert.notEqual(properties.get('--cursor-link'),first,'Rainbow fill animates even while pointer rests');
+const svg=decodeURIComponent(first.slice(first.indexOf(',')+1,-2));
+assert.match(svg,/stroke="#29323b" stroke-width="3.2"/,'Dark outline stays unchanged');
+assert.match(svg,/width="26" height="28"/,'Cursor keeps its dimensions');
+move(link);assert.equal(intervals.size,1,'Nested hover never duplicates timer');
+move(null);assert.equal(intervals.size,0);assert.equal(properties.size,0);
+move(link);assert.equal(imageCount,36,'Frames reused across hover sessions');
+link.disabled=true;intervals.values().next().value();assert.equal(intervals.size,0);link.disabled=false;
+reduced.matches=true;reduced.change();move(link);assert.equal(intervals.size,0);reduced.matches=false;
+fine.matches=false;fine.change();move(link);assert.equal(intervals.size,0);fine.matches=true;
+move(link);document.hidden=true;events.get('visibilitychange')();assert.equal(intervals.size,0);document.hidden=false;
+move(link);events.get('blur')();assert.equal(intervals.size,0);move(link);assert.equal(intervals.size,0);
+events.get('focus')();move(link);assert.equal(intervals.size,1);
+events.get('portfolio:overlay')();assert.equal(intervals.size,0);
+move(link);link.isConnected=false;intervals.values().next().value();assert.equal(intervals.size,0);
+console.log('Rainbow cursor: hover animation, cached frames, fixed outline, and lifecycle/reduced-motion cleanup pass.');

@@ -4,7 +4,7 @@ const NS='http://www.w3.org/2000/svg',surfaces=new Map(),marks=[],pending=[];
 const surfaceSelector='.school,.work-section,.recent-section,.roblox-panel,.social-panel,.notes,.project-entry,.number-demo,.banner';
 const clothElements=[...document.querySelectorAll(surfaceSelector)].filter(element=>element.closest('.banner'));
 let geometry=null;
-let previous=null,filter=null,target=null,inputTime=0,frame=0,last=0,sequence=0,blocked=false,pointerInside=false,glitchTimer=0;
+let previous=null,filter=null,target=null,inputTime=0,frame=0,last=0,sequence=0,blocked=false;
 let stroke=0,seededStroke=-1,seededBanner=null,lastMovement=0,flowerSequence=0,lastFlowerAt=-Infinity;
 function resetStroke(){previous=null;filter=null;target=null;inputTime=0;stroke++;}
 function advanceStroke(point,now){
@@ -14,20 +14,11 @@ function advanceStroke(point,now){
 }
 const allowed=()=>fine.matches&&!reduced.matches&&!document.hidden&&!blocked;
 const node=(name,attrs={})=>{const el=document.createElementNS(NS,name);for(const [key,value] of Object.entries(attrs))el.setAttribute(key,value);return el;};
-function clearGlitch(){clearTimeout(glitchTimer);glitchTimer=0;document.documentElement.removeAttribute('data-cursor-glitch');}
-function scheduleGlitch(){
- if(glitchTimer||!allowed()||!pointerInside)return;
- glitchTimer=setTimeout(()=>{
-  glitchTimer=0;if(!allowed()||!pointerInside)return;
-  document.documentElement.setAttribute('data-cursor-glitch','');
-  glitchTimer=setTimeout(()=>{glitchTimer=0;document.documentElement.removeAttribute('data-cursor-glitch');scheduleGlitch();},110);
- },2800);
-}
 function clearMarks(){
  cancelAnimationFrame(frame);frame=0;last=0;resetStroke();
  marks.splice(0).forEach(mark=>mark.group.remove());pending.length=0;surfaces.forEach(surface=>{surface.batch=null;});
 }
-function sync(){blocked=Boolean(document.querySelector('dialog[open]'));clearMarks();clearGlitch();scheduleGlitch();}
+function sync(){blocked=Boolean(document.querySelector('dialog[open]'));clearMarks();}
 function surfaceFor(element){
  let surface=surfaces.get(element);
  if(!surface){
@@ -140,8 +131,8 @@ function tick(now){
 }
 document.addEventListener('pointermove',event=>{
  if(event.pointerType==='touch'||!allowed())return;
- if(event.target.closest?.('input,textarea,[contenteditable=true]')){resetStroke();pointerInside=false;clearGlitch();return;}
- pointerInside=true;scheduleGlitch();
+ if(event.target.closest?.('input,textarea,[contenteditable=true]')){resetStroke();return;}
+
  const now=performance.now();
  if(lastMovement&&now-lastMovement>650)resetStroke();
  lastMovement=now;
@@ -155,7 +146,7 @@ document.addEventListener('pointermove',event=>{
   previous=point;
  }
 },{passive:true});
-function leave(){pointerInside=false;resetStroke();clearGlitch();}
+function leave(){resetStroke();}
 document.documentElement.addEventListener('pointerleave',leave);
 document.addEventListener('pointerout',event=>{if(!event.relatedTarget)leave();});
 function invalidate(){geometry=null;surfaces.forEach(surface=>{surface.rect=null;});resetStroke();}
