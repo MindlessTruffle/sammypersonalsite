@@ -8,8 +8,8 @@ let frames, images, active = null, timer = 0, index = 0, focused = true;
 function prepareFrames() {
   if (frames) return;
   frames = Array.from({length:36}, (_, frame) => {
-    const stops = [0, .33, .66, 1].map((offset, i) => `<stop offset="${offset}" stop-color="hsl(${(frame * 10 + i * 80) % 360},88%,72%)"/>`).join('');
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="28" viewBox="0 0 26 28"><defs><linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="1">${stops}</linearGradient></defs><path d="${shape}" fill="url(#rainbow)" stroke="#29323b" stroke-width="3.2" stroke-linejoin="round"/><path d="m6 8 .6 8M8 8l7 4" fill="none" stroke="#fffdf0" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/></svg>`;
+    const stops = [0, .2, .4, .6, .8, 1].map((offset, i) => `<stop offset="${offset}" stop-color="hsl(${(frame * 10 + i * 60) % 360},100%,55%)"/>`).join('');
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="28" viewBox="0 0 26 28"><defs><linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="1">${stops}</linearGradient></defs><path d="${shape}" fill="url(#rainbow)" stroke="#29323b" stroke-width="3.2" stroke-linejoin="round"/><path d="m6 8 .6 8M8 8l7 4" fill="none" stroke="#fffdf0" stroke-opacity=".3" stroke-width="2" stroke-linecap="round"/></svg>`;
     return 'data:image/svg+xml,' + encodeURIComponent(svg);
   });
   // Decode once, then reuse the same tiny images across all links and buttons.
@@ -31,7 +31,7 @@ function hover(target) {
   stop();
   if (!next || next.closest(disabled) || document.hidden || !focused || !fine.matches || reduced.matches) return;
   prepareFrames(); active = next; paint();
-  timer = setInterval(paint, 80);
+  timer = setInterval(paint, 30);
 }
 const track = event => { if (event.pointerType !== 'touch') hover(event.target); };
 document.addEventListener('pointerover', track, {passive:true});

@@ -41,7 +41,7 @@ Social keys and handles are centered. Three quiet pixel scenes idle beneath the 
 birds banking and soaring, binary flowing along commit branches, and a black pen tracing a signature, a wax seal, and a handshake. They pause offscreen, in dialogs, and for reduced motion.
 
 Fine pointers use a rounded 26px cream cursor with a thick dark outline, a rainbow link state,
-and smoothly cycling rainbow fill while hovering clickable elements. Reduced motion keeps the fill static; glitch effects are removed. Fresh vines can begin with an immediate flower,
+and a vivid six-band rainbow fill cycling every 1.08 seconds while hovering clickable elements. Frames are cached and update every 30ms; color saturation is 100%. Reduced motion keeps the fill static; glitch effects are removed. Fresh vines can begin with an immediate flower,
 limited to one starter flower every four seconds across all banners.
 Pointer movement paints temporary vines into banner backgrounds. Marks remain fixed to the
 cloth, draw responsive stems immediately, grow paired leaves and varied flowers later, and fade over 3.4 seconds. No trails appear
