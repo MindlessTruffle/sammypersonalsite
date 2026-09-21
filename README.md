@@ -2,7 +2,7 @@
 
 Standalone repository: sammypersonalsite, main branch. Medieval portfolio.
 GitHub Pages: https://mindlesstruffle.github.io/sammypersonalsite/
-Custom-domain redirect is disabled for now.
+Custom domain: sammyhawari.com. Preserve docs/CNAME; the public build uses root URLs.
 
 GitHub Pages publishes the ready-built `docs/` folder from `main`. Visitors and hosting
 need no Node.js server: these are static HTML, CSS, JavaScript, images, and fonts.
