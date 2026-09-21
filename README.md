@@ -72,8 +72,8 @@ two-stroke birds cross behind the banners in 23–32 seconds, softened with blur
 transforms handle motion without a JavaScript animation loop or scroll listener.
 Hidden tabs and dialogs pause the scenery; reduced motion hides it entirely.
 
-Personal identity assets use a friendly gold pixel S with tiny eyes and blush on blue cloth. The name heading has no logo.
-`npm run build:brand` regenerates SVG/PNG/ICO favicons, the touch icon, and 512px square export using Node built-ins. Versioned cute-icon URLs refresh browser caches.
+Personal identity assets use a bubbly cream pixel S on the same red checkerboard as the close buttons. The name heading has no logo.
+`npm run build:brand` regenerates SVG/PNG/ICO favicons, the touch icon, and 512px square export using Node built-ins. Versioned checkered-icon URLs refresh browser caches.
 The social preview at dist/assets/sammy-icon-emulator-social.png blends the existing Icon Emulator meadow artwork and workspace capture with a feathered diagonal seam. It is a curated 1730x909 image, preserved by builds. Open Graph and Twitter tags reference its new absolute URL and actual dimensions. See scripts/brand-art-notes.md for the generation prompt.
 
 SEO and AI discovery files are generated from existing content. See [SEO-SETUP.md](SEO-SETUP.md) for account verification, crawler files, IndexNow, and domain follow-up. These are local changes until a push is requested.
